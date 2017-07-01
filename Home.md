@@ -1,6 +1,6 @@
 Welcome to the humble web site for DrFTPD!
 
-Resources
+**Resources**
 
 Documentation
 Forum
@@ -9,11 +9,11 @@ DrFTPD Repository
 IRC support @ #drftpd/EFNet
 Introduction
 
-Introduction
+**Introduction**
 Filesystem
 Comparison to traditional FTPDs
 
-Features
+**Features**
 
 Free Software
 Uses file transfer slaves as explained above
@@ -28,6 +28,6 @@ User Trial
 Archiving/mirroring plugin
 Slave stripes files across multiple roots (mountpoints)
 
-Illustration
+**Illustration**
 
-Flowchart.gif
+![](http://drftpd.org/images/Flowchart.gif)
