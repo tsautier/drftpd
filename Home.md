@@ -1,1 +1,1 @@
-Welcome to the drftpd3 wiki!
+Welcome to the humble web site for DrFTPD!
