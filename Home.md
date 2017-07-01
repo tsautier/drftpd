@@ -2,16 +2,16 @@ Welcome to the humble web site for DrFTPD!
 
 **Resources**
 
-Documentation
-Forum
-FAQ
-DrFTPD Repository
-IRC support @ #drftpd/EFNet
-Introduction
+* Documentation
+* Forum
+* FAQ
+* DrFTPD Repository
+* IRC support @ #drftpd/EFNet
 
 **Introduction**
-Filesystem
-Comparison to traditional FTPDs
+* Introduction
+* Filesystem
+* Comparison to traditional FTPDs
 
 **Features**
 
