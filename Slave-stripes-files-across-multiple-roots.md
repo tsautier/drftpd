@@ -28,7 +28,7 @@ RAID5 is very good, but all drives in the array need to be the same size. but yo
 
 In my opinion, the best approach is to run one filesystem per disk. This way you can add and remove disks freely without loosing any more data than what was on the disk you removed.
 
-#VFS
+# VFS
 ***
 
 To solve the problem with dividing content, you use a VFS for merging the listings from several drives, so listing vfs://virtual/pub might merge the file listings from /mnt/drive{1,2,3}/site/pub and display them as one. If you use *nix you can also use symlinks instead of a vfs layer.
