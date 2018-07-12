@@ -1,4 +1,3 @@
-FAQ
 Q: Where can I get DrFTPD?
 A: Download the latest available version from https://github.com/drftpd-ng/drftpd3.
 
