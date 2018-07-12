@@ -1,7 +1,7 @@
 General
 ***
 
-* FAQ(test)
+* [FAQ](https://github.com/drftpd-ng/drftpd3/wiki/FAQ)
 * Special Groups
 * Clients with PRET support
 * Getting Help
