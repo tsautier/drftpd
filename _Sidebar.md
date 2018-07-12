@@ -11,3 +11,4 @@
 * [IRC support]
 
 * [Introduction]()
+* [FreeSoftware]()
