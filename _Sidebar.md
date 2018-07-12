@@ -10,5 +10,5 @@
 * [DrFTPD Repository]
 * [IRC support]
 
-* [Introduction]()
+* [Introduction](https://github.com/drftpd-ng/drftpd3/wiki/Introduction)
 * [FreeSoftware]()
