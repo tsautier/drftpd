@@ -47,16 +47,12 @@ Q: How do I enable SSL for my site?
 A: Edit perms.conf
 
 userrejectsecure !*
-
 userrejectinsecure *
-
 denydiruncrypted *
-
 denydatauncrypted *
 
 Q: Where are permissions stored?
 A: Permissions are specified in perms.conf, perms.conf is a glftpd.conf style. See perms.conf
-
 
 Troubleshooting
 Installation
@@ -70,7 +66,6 @@ Site Usage
 Why are some files appended by .conflict my ftp? What are these *.conflict files?
 These files are left by the archive plugin, they come about when the same file name exists on at least two slaves, but the size varies.
 fix: Try just deleting the .conflict file. The full size, regularly named file should still exist on the original slave that it was archived from.
-
 
 Why are some files appended -OFFLINE?
 These files are located on slaves that are currently offline. When the slave comes back online, the files will once again be available. If the slave is permanently gone, use the delslave command to permanently remove it, changing all -OFFLINE files to -MISSING files.
