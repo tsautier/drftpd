@@ -2,7 +2,7 @@ Welcome to the humble web site for DrFTPD!
 
 **Resources**
 
-* Documentation
+* [Documentation](https://github.com/drftpd-ng/drftpd3/wiki/Documentation)
 * Forum #Down ATM
 * [FAQ](https://github.com/drftpd-ng/drftpd3/wiki/FAQ)
 * [DrFTPD Repository](https://github.com/drftpd-ng/drftpd3)
