@@ -2,7 +2,7 @@ A list of clients that support PRET Specifications.
 
 Or you can use PORT instead of PASV, if you're behind NAT you need to Configure your firewall.
 
-Graphical Interface
+**Graphical Interface**
 ***
 
 * BitKinex (Win32)
@@ -21,7 +21,7 @@ Graphical Interface
 * YummyFTP (OSX)
 * Cyberduck since 3.0b1 (OSX)
 * wlFxp (Linux/Win32/OSX/Java)
-Command Line Interface
+**Command Line Interface**
 ***
 
 * cURL 7.20.0 and later with --ftp-pret option (Unix/Linux/Windows/OSX/DOS/More)
@@ -29,7 +29,7 @@ Command Line Interface
 * pftp-shit
 * Pftpmew (Linux) with patch
 * pftp (Port-FTP) (Linux) with patch (Also see the Forum)
-Development SDK
+**Development SDK**
 ***
 
 * FXP.One also ships with FXP.cOne and clomps Clients (Linux/Win32/OSX)
