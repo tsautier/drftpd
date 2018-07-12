@@ -16,7 +16,7 @@ Welcome to the humble web site for DrFTPD!
 
 **Features**
 
-* Free Software
+* [Free Software](https://github.com/drftpd-ng/drftpd3/wiki/Free-Software)
 * Uses file transfer slaves as explained above
 * Runs without root/administrator privileges
 * Stripes files across slaves
