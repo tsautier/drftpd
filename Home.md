@@ -4,7 +4,7 @@ Welcome to the humble web site for DrFTPD!
 
 * Documentation
 * Forum
-* FAQ
+* [FAQ](https://github.com/drftpd-ng/drftpd3/wiki/FAQ)
 * [DrFTPD Repository](https://github.com/drftpd-ng/drftpd3)
 * IRC support @ [#drftpd/EFNet](irc://irc.efnet.org/drftpd) and [#drftpd-devel/EFNet](irc://irc.efnet.org/drftpd-devel)
 
