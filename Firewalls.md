@@ -2,7 +2,7 @@ Many people have issues with connecting to drftpd because they are behind some k
 
 Your choices are
 
-1. Getting a Client with PRET support
+1. Getting a [Client with PRET support](https://github.com/drftpd-ng/drftpd3/wiki/Clients-with-PRET-support)
 2. Getting a UPnP client and router (such as SmartFTP)
 3. Configuring your router and client to use a port forwarding with a port range or DMZ.
 
