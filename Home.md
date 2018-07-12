@@ -27,7 +27,7 @@ Welcome to the humble web site for DrFTPD!
 * IRC Sitebot, or multiple
 * User Trial
 * Archiving/mirroring plugin
-* Slave stripes files across multiple roots (mountpoints)
+* [Slave stripes files across multiple roots (mountpoints)](https://github.com/drftpd-ng/drftpd3/wiki/Slave-stripes-files-across-multiple-roots)
 
 **Illustration**
 
