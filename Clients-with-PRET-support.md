@@ -1,5 +1,6 @@
 A list of clients that support PRET Specifications.
-Or you can use PORT instead of PASV, if you're behind NAT you need to Configure your firewall.
+
+Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure your firewall](https://github.com/drftpd-ng/drftpd3/wiki/PRET-Specifications).
 
 **Graphical Interface**
 ***
