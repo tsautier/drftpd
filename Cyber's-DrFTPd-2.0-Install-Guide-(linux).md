@@ -245,9 +245,11 @@ The problem most people are having, and the one I am going to describe is matchd
 
 Whenever adding a new filter, be sure you add it before "n.filter=cycle". That should always be at the end of the file unless you know what you're doing
 
-`n.filter=matchdir`
-`n.match=/DIR1*`
-`n.assign=SLAVE1+remove, SLAVE2+remove, SLAVE3+500, SLAVE4-200`
+```
+n.filter=matchdir
+n.match=/DIR1*
+n.assign=SLAVE1+remove, SLAVE2+remove, SLAVE3+500, SLAVE4-200
+```
 
 The other one that some people edit is the filter minfreespace. The n=3 one. 100MB is pretty low to stop the ftp from sending because the logs can be over 100mb's in many instances and the computer will stop running. In this cause you can change the 100MB to 500MB or even 1GB. But remember this is not per slave, this is for all slaves
 
@@ -256,19 +258,20 @@ End of slaveselection-up.conf
 There that's the basic instructions for Advanced Configurations
 
 # Common Problems
-**Q: JRE cannot Initialize when trying to run master/slave **
+
+**Q: JRE cannot Initialize when trying to run master/slave**
 > A: Java path not set in profile. Either add the path to profile, or make a symbolic link to java in /usr/bin
 
-**Q: Connection Refused when trying to start slave **
+**Q: Connection Refused when trying to start slave**
 > A: Could be 2 things, The ip you are trying to connect to is wrong, or the master bind port is wrong
 
-**Q: Cannot Find drftpd.key **
+**Q: Cannot Find drftpd.key**
 > A: You didn't run genkey.sh
 
-**Q: Can you help me out with 1.1.4 **
+**Q: Can you help me out with 1.1.4**
 > A: It has been out of dev for a while now, so No (Upgrade)
 
-**Q: Will This Work For Windows **
+**Q: Will This Work For Windows**
 > A: Yes the only difference is the .sh commands to the service commands in windows
 
 **Q: Can you write specific commands for starting Master Slave in windows **
@@ -277,7 +280,7 @@ There that's the basic instructions for Advanced Configurations
 **Q: What Version Of Java Do I Need?** 
 > A: Master Needs 1.5 but slaves do not, but to be on the safe side, id put 1.5 on both
 
-**Q: HELP! I can't transfer files, I keep getting Failed errors! **
+**Q: HELP! I can't transfer files, I keep getting Failed errors!**
 > A: drftpd.key that you created on your master _NEEDS_ to be on all your slaves too
 
 # Ending Credits
