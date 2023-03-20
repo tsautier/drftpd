@@ -46,6 +46,7 @@ ex. $nano /etc/profile
 At the end of that input:
 
 For master: `PATH=$PATH:"<Location of your jdk1.5>/bin directory"`
+
 For slave: `PATH=$PATH:"<Location of your jre1.5>/bin directory"`
 
 Save and close
