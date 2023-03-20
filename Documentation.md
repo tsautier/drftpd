@@ -49,7 +49,7 @@
 # Help Files
 
 * [Filesystem](https://github.com/drftpd-ng/drftpd/wiki/Filesystem)
-* Firewalls
+* [Firewalls]
 * Logging
-Log level log4j
-External Log Tools
+   * [Log level log4j]
+   * [External Log Tools]
