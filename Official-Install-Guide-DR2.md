@@ -41,8 +41,11 @@ Rename/Edit all files in conf/ with the exception of wrapper-slave.conf.dist
 * Plugins: There are multiple plugins included with DrFTPD, each plugin has its own settings, instructions on the plugins are in their respective configuration files(if they have them). VERY IMPORTANT: the numbers of the plugins have to be sequential.
 
 Example:
-`plugins.2=org.drftpd.plugins.SiteBotSSL`
-`plugins.3=net.sf.drftpd.event.listeners.Trial`
+
+```
+plugins.2=org.drftpd.plugins.SiteBotSSL
+plugins.3=net.sf.drftpd.event.listeners.Trial
+```
 
 This will NOT work. There has to be a plugins.1=..., otherwise no plugin will be loaded. The order can be random, but numbers have to be sequential.
 
