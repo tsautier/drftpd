@@ -22,9 +22,11 @@ You had better know your root password :)
 
 **Set Home Dir Perms**
 
-```cd /home```
-```chown -R drftpd:drftpd drftpd```
-```chmod -R 700 drftpd```
+`cd /home`
+
+`chown -R drftpd:drftpd drftpd`
+
+`chmod -R 700 drftpd`
 
 **Set DrFTPD User Shell Environment**
 
