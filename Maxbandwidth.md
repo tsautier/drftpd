@@ -1,0 +1,1 @@
+n.filter=maxbandwidth n.maxbandwidth=100k This will remove any slave that is transferring at greater than 100k/s in the desired direction
