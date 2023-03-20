@@ -13,11 +13,11 @@ The scores are tallied up through each of the filters and the slave with the bes
 * [Cycle](https://github.com/drftpd-ng/drftpd/wiki/Cycle)
 * [Bandwidth](https://github.com/drftpd-ng/drftpd/wiki/Bandwidth)
 * [Reversebandwidth](https://github.com/drftpd-ng/drftpd/wiki/Reversebandwidth)
-* [Maxbandwidth](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Maxbandwidth)
-* [Maxtransfers](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Maxtransfers)
-* [Minfreespace](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Minfreespace)
-* [Mintimeonline](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php?title=Mintimeonline&action=edit&redlink=1)
-* [Slavetop](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Slavetop)
-* [Matchdir](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Matchdir)
+* [Maxbandwidth](https://github.com/drftpd-ng/drftpd/wiki/Maxbandwidth)
+* [Maxtransfers](https://github.com/drftpd-ng/drftpd/wiki/Maxtransfers)
+* [Minfreespace](https://github.com/drftpd-ng/drftpd/wiki/Minfreespace)
+* [Mintimeonline](https://github.com/drftpd-ng/drftpd/wiki/Mintimeonline)
+* [Slavetop](https://github.com/drftpd-ng/drftpd/wiki/Slavetop)
+* [Matchdir](https://github.com/drftpd-ng/drftpd/wiki/Matchdir)
 
 For typical transfers either `slaveselection-up.conf` or `slaveselection-down.conf` are used, however if you are using the Mirror or Archive plugin, then you are also using the `slaveselection-jobup.conf` and `slaveselection-jobdown.conf`.
