@@ -222,7 +222,7 @@ There that's the basic instructions for Advanced Configurations
 
 # Common Problems
 **Q: JRE cannot Initialize when trying to run master/slave **
-A: Java path not set in profile. Either add the path to profile, or make a symbolic link to java in /usr/bin
+> A: Java path not set in profile. Either add the path to profile, or make a symbolic link to java in /usr/bin
 **Q: Connection Refused when trying to start slave **
 A: Could be 2 things, The ip you are trying to connect to is wrong, or the master bind port is wrong
 **Q: Cannot Find drftpd.key **
