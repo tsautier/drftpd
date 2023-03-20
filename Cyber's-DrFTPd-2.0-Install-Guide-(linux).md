@@ -80,23 +80,33 @@ Uncomment and change pasv_addr to your master IP.
 **irc.conf**
 
 > Change irc.server/port/ssl to desired
+
 > Change blowfish if wanted
+
 > Change/Add channels in irc.channel.n (n to be incremented)
+
 > Change irc.nick/name/user to desired Permissions on IRC commands are no longer located in irc.conf, they are in irccommands.conf
 
 **trial.conf**
 
 > Change n.name to desired quota/trial group
+
 > Change n.quota to the size of trial/quota you want
+
 > Change n.period to weekly/monthly/daily
+
 > Change n.fail to delete/setgrp grpname
+
 > Change n.pass to delete/setgrp grpname
+
 > Change n.perms to !=siteop (not siteop group) !=iND (not iND group) * (but everyone else)
+
 > Make sure all trial/quotas are incremented by n
 
 **sections.conf**
 
 > Change n.path/name to desired
+
 > For Dated Paths Use:
 
 ```
