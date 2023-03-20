@@ -3,7 +3,6 @@ A list of clients that support [PRET Specifications](https://github.com/drftpd-n
 Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure your firewall](https://github.com/drftpd-ng/drftpd3/wiki/Firewalls).
 
 **Graphical Interface**
-***
 
 * BitKinex (Win32)
 * SmartFTP 1.5.988.38 and later (Win32)
@@ -21,16 +20,16 @@ Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure
 * YummyFTP (OSX)
 * Cyberduck since 3.0b1 (OSX)
 * wlFxp (Linux/Win32/OSX/Java)
+
 **Command Line Interface**
-***
 
 * cURL 7.20.0 and later with --ftp-pret option (Unix/Linux/Windows/OSX/DOS/More)
 * lftp 2.6.8 and later (Linux)
 * pftp-shit
 * Pftpmew (Linux) with patch
 * pftp (Port-FTP) (Linux) with patch (Also see the Forum)
+
 **Development SDK**
-***
 
 * FXP.One also ships with FXP.cOne and clomps Clients (Linux/Win32/OSX)
 * ftp4che (Java)
