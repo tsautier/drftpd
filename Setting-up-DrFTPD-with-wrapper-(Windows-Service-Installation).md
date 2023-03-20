@@ -10,10 +10,9 @@ What you need to configure specifically for master and slave is included in wrap
 
 **common**
 
-`wrapper.java.mainclass=org.tanukisoftware.wrapper.WrapperSimpleApp
-`
-`wrapper.java.additional.1=-Djava.rmi.server.randomIDs=true
-`
-`wrapper.java.additional.2=-Djava.rmi.dgc.leaseValue=300000
-`
-`wrapper.java.additional.3=-Djava.rmi.server.disableHttp=true`
+```
+wrapper.java.mainclass=org.tanukisoftware.wrapper.WrapperSimpleApp
+wrapper.java.additional.1=-Djava.rmi.server.randomIDs=true
+wrapper.java.additional.2=-Djava.rmi.dgc.leaseValue=300000
+wrapper.java.additional.3=-Djava.rmi.server.disableHttp=true
+```
