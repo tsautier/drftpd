@@ -74,7 +74,7 @@ Have fun with the java port
 `umount /compat/linux/proc`
 `kldunload linprocfs`
 
-## Install DrFTPD+ 2.0 As DrFTPD User
+# Install DrFTPD+ 2.0 As DrFTPD User
 
 Install in the home directory of drftpd as the user
 
@@ -131,56 +131,83 @@ Install in the home directory of drftpd as the user
 `ant compile-xstream`
 `cd ../`
 
-## Install Required Libraries
+# Install Required Libraries
 
-### Install libFileSystem.so
+## Install libFileSystem.so
 
-Fix The Build Script
-sed -i '' "s/linux/freebsd/g" drftpd/src/se/mog/io/jni.sh
-Compile libFileSystem.so
-cd drftpd/src/se/mog/io/
-./jni.sh
-cd ../../../../../
-Install libFileSystem.so
-cp drftpd/src/se/mog/io/libFileSystem.so drftpd/lib/
-Install Java Wrapper Files
-Extract Source Code
-tar zxvf drftpd/extsources/wrapper_3.1.2_src.tar.gz -C drftpd/extsources/
-Fix Source File
-sed -i '' "s/1.2/1.5/g" drftpd/extsources/wrapper_3.1.2_src/build.xml
-sed -i '' "s/enum/yourface/g" drftpd/extsources/wrapper_3.1.2_src/src/java/org/tanukisoftware/wrapper/test/AbstractActionApp.java
-Build Java Wrapper
-cd drftpd/extsources/wrapper_3.1.2_src/
-./build.sh
-cd ../../../
-Install Wrapper Files
-cp drftpd/extsources/wrapper_3.1.2_src/bin/wrapper drftpd/bin/
-cp drftpd/extsources/wrapper_3.1.2_src/lib/libwrapper.so drftpd/lib
-cp drftpd/extsources/wrapper_3.1.2_src/lib/wrapper.jar drftpd/lib
-Basic Configuration
-Rename Config Files
-Rename drftpd/ Config Files
-cd drftpd
-foreach i (`ls *conf.dist`)
-  mv $i `echo $i|sed 's/\..\{4\}$//'`
-end
-cd ..
-Rename drftpd/conf Config Files
-cd drftpd/conf
-foreach i (`ls *conf.dist`)
-  mv $i `echo $i|sed 's/\..\{4\}$//'`
-end
-cd ../../
-Create Logs Folder
-mkdir drftpd/logs
-Generate SSL Key
-cd drftpd
-./genkey.sh
-cd ../
-Ensure DrFTPD+ 2.0 Starts
-Start DrFTPD+ 2.0
-drftpd/master.sh start
-drftpd/slave.sh start
-sleep 3
-drftpd/master.sh status
-drftpd/slave.sh status
+**Fix The Build Script**
+
+`sed -i '' "s/linux/freebsd/g" drftpd/src/se/mog/io/jni.sh`
+
+**Compile libFileSystem.so**
+
+`cd drftpd/src/se/mog/io/`
+`./jni.sh`
+`cd ../../../../../`
+
+**Install libFileSystem.so**
+
+`cp drftpd/src/se/mog/io/libFileSystem.so drftpd/lib/`
+
+## Install Java Wrapper Files
+
+**Extract Source Code**
+
+`tar zxvf drftpd/extsources/wrapper_3.1.2_src.tar.gz -C drftpd/extsources/`
+
+**Fix Source File**
+
+`sed -i '' "s/1.2/1.5/g" drftpd/extsources/wrapper_3.1.2_src/build.xml`
+`sed -i '' "s/enum/yourface/g" drftpd/extsources/wrapper_3.1.2_src/src/java/org/tanukisoftware/wrapper/test/AbstractActionApp.java`
+
+**Build Java Wrapper**
+
+`cd drftpd/extsources/wrapper_3.1.2_src/`
+`./build.sh`
+`cd ../../../`
+
+**Install Wrapper Files**
+
+`cp drftpd/extsources/wrapper_3.1.2_src/bin/wrapper drftpd/bin/`
+`cp drftpd/extsources/wrapper_3.1.2_src/lib/libwrapper.so drftpd/lib`
+`cp drftpd/extsources/wrapper_3.1.2_src/lib/wrapper.jar drftpd/lib`
+
+# Basic Configuration
+
+## Rename Config Files
+
+**Rename drftpd/ Config Files**
+
+`cd drftpd`
+`foreach i (`ls *conf.dist`)`
+  `mv $i `echo $i|sed 's/\..\{4\}$//'``
+`end`
+`cd ..`
+
+**Rename drftpd/conf Config Files**
+
+`cd drftpd/conf`
+`foreach i (`ls *conf.dist`)`
+  `mv $i `echo $i|sed 's/\..\{4\}$//'``
+`end`
+`cd ../../`
+
+## Create Logs Folder
+
+`mkdir drftpd/logs`
+
+## Generate SSL Key
+
+`cd drftpd`
+`./genkey.sh`
+`cd ../`
+
+# Ensure DrFTPD+ 2.0 Starts
+
+## Start DrFTPD+ 2.0
+
+`drftpd/master.sh start`
+`drftpd/slave.sh start`
+`sleep 3`
+`drftpd/master.sh status`
+`drftpd/slave.sh status`
