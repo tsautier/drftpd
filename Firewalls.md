@@ -6,9 +6,7 @@ Your choices are
 2. Getting a UPnP client and router (such as SmartFTP)
 3. Configuring your router and client to use a port forwarding with a port range or DMZ.
 
-### DMZ - Demilitarized Zone
-***
-
+## DMZ - Demilitarized Zone
 
 Below is a url link that shows the first steps in resolving this issue if you are using FlashFXP http://w1.195.telia.com/~u19510214/guide/
 
@@ -26,7 +24,6 @@ Once you get into your router you need to check all the tabs and find a DMZ sect
 
 MS windows - start > run > cmd (for win98-2000-nt) This will bring up a command prompt window. XP > start > all programs > accessories > command prompt This also brings up the same thing. at the command prompt you see c:\>_ and the cursor is blinking. Type ipconfig and this will display your ip address. something like 192.168.?.? This is the ip address your assign your dmz to. Once you assign the DMZ to your pc you are set. As long as you have your flash fxp firewall settings bound to your wan ip addess and you specify any port range.
 
-### Port range
-***
+## Port range
 
 I suggest you specify port ranges of 1000-1099 or something allowing at least 100 ports open. Since ftp only uses TCP, only TCP port ranges need to be forwarded. For the purpose of drftpd, you can drop all incoming UDP packets.
