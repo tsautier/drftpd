@@ -11,7 +11,8 @@
 
 **Introduction**
 * [Introduction](https://github.com/drftpd-ng/drftpd3/wiki/Introduction)
-* [Filesystem](https://github.com/drftpd-ng/drftpd/wiki/Filesystem)
+* [Filesystem](https://github.com/drftpd-ng/drftpd/wiki/Introduction#filesystem)
+* [Comparison to traditional FTPDs](https://github.com/drftpd-ng/drftpd/wiki/Introduction#filesystem)
 
 **Features**
 * [FreeSoftware]()
