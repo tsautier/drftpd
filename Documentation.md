@@ -35,7 +35,6 @@ DrFTPd 3
 **Installation guides for DrFTPd 3**
 * [Official Install Guide 3](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-3)
     * [Installing Plugins](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-3#plugins)
-* How to install latest subversion
 * Installing Plugins
 
 **Configuring DrFTPd 3**
