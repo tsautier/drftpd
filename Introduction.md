@@ -1,4 +1,4 @@
-**Introduction**
+### Introduction
 
 DrFTPD is a Distributed FTP server written in java, it's unique because it doesn't handle transfers like normal FTP servers. DrFTPD is set up with a master and a collection of file transfer slaves that handle the file transfers, you can have as many file transfer slaves as you like. Some names that could be used to describe this is ftp site merger, ftp cluster, ftp grid or multi site bnc, but the only accurate term is "distributed ftp daemon."
 
@@ -6,7 +6,7 @@ What is unique with DrFTPD is that it works with existing FTP client software, y
 
 If you merge 10 100mbit sites, you don't get a 1gbit site but you get a 10x100mbit site. What this means is that the aggregate bandwidth is 1000 mbit but a single transfer will never go above 100mbit.
 
-**Filesystem**
+### Filesystem
 
 DrFTPD's approach to the file system and file transfers is what makes it unique. Each file can, and will, end up on a different transfer slave.
 
@@ -22,10 +22,10 @@ Neither the master or the slaves need root privileges. The virtual filesystem co
 
 The slave is kept thin/dumb and isn't told anything about users. It simply processes the instructions that are given to the master and knows nothing about the ftp protocol. This is an advantage as it simplifies administration of the slaves.
 
-**Comparison to traditional FTPDs**
+### Comparison to traditional FTPDs
 
 Drftpd is truly distributed and has no working comparison. Msftpd is a work in progress and follows the PRET spec that drftpd has created. Drftpd is the only working implementation of PRET.
 
 RaidenFTPD managed to get halfway toward PRET with what it calls VLS (Virtually Linked Servers). It does a remote mount of a directory, so you can put /movies on another FTP. It's just a convenience so that the ftp client doesn't need to connect to another FTP.
 
-**Illustration**
+### Illustration
