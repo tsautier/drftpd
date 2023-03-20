@@ -79,7 +79,10 @@ Uncomment and change pasv_addr to your master IP.
 
 **irc.conf**
 
-Change irc.server/port/ssl to desired Change blowfish if wanted Change/Add channels in irc.channel.n (n to be incremented) Change irc.nick/name/user to desired Permissions on IRC commands are no longer located in irc.conf, they are in irccommands.conf
+> Change irc.server/port/ssl to desired
+> Change blowfish if wanted
+> Change/Add channels in irc.channel.n (n to be incremented)
+> Change irc.nick/name/user to desired Permissions on IRC commands are no longer located in irc.conf, they are in irccommands.conf
 
 **trial.conf**
 
