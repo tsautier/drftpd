@@ -41,13 +41,13 @@ Rename/Edit all files in conf/ with the exception of wrapper-slave.conf.dist
 * Plugins: There are multiple plugins included with DrFTPD, each plugin has its own settings, instructions on the plugins are in their respective configuration files(if they have them). VERY IMPORTANT: the numbers of the plugins have to be sequential.
 
 Example:
-plugins.2=org.drftpd.plugins.SiteBotSSL
-plugins.3=net.sf.drftpd.event.listeners.Trial
+`plugins.2=org.drftpd.plugins.SiteBotSSL`
+`plugins.3=net.sf.drftpd.event.listeners.Trial`
 
 This will NOT work. There has to be a plugins.1=..., otherwise no plugin will be loaded. The order can be random, but numbers have to be sequential.
 
-plugins.2=org.drftpd.plugins.SiteBotSSL
-plugins.1=net.sf.drftpd.event.listeners.Trial
+`plugins.2=org.drftpd.plugins.SiteBotSSL`
+`plugins.1=net.sf.drftpd.event.listeners.Trial`
 
 This works.
 
@@ -65,7 +65,6 @@ A slave only needs you to configure conf/wrapper-slave.conf and slave.conf
 
 When finished, run slave.sh/slave.bat
 
-
 [Example Slave Config](https://web.archive.org/web/20140317122933/http://www.drftpd.org/index.php/Example_Slave_Config)
 [Setting up SlaveBootStrap](https://web.archive.org/web/20140317122933/http://www.drftpd.org/index.php/Setting_up_SlaveBootStrap)
 [Setting up DrFTPD with wrapper](https://web.archive.org/web/20140317122933/http://www.drftpd.org/index.php/Wrapper) (Windows Service Installation)
@@ -76,7 +75,6 @@ Now you're finished. you can now login at [ftp://drftpd:drftpd@localhost:2121](h
 You can find more documentation [here](https://web.archive.org/web/20140317122933/http://www.drftpd.org/index.php/Documentation).
 
 Sign up to the [drftpd-discuss mailing list](https://web.archive.org/web/20140317122933/http://lists.sourceforge.net/lists/listinfo/drftpd-discuss) if you didn't already. [drftpd-commits mailing list](https://web.archive.org/web/20140317122933/http://lists.sourceforge.net/lists/listinfo/drftpd-commits) may be helpful also for you java guru's who like to watch development.
-
 
 ## Windows Installation
 Wrapper Compiled on Windows -> [http://drftpd.ultrapresence.net/wrapper-winxp.zip](https://web.archive.org/web/20140317122933/http://drftpd.ultrapresence.net/wrapper-winxp.zip)
