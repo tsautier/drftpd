@@ -1,0 +1,1 @@
+> This filter works like Bandwidth only it checks the amount of bandwidth used in the opposite direction that desired for this transfer
