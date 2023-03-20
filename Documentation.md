@@ -27,7 +27,7 @@ DrFTPd 2
 
 **Using DrFTPd 2**
 * [First login](https://github.com/drftpd-ng/drftpd/wiki/First-login)
-* [Site Commands]()
+* [Site Commands](https://github.com/drftpd-ng/drftpd/wiki/Site-Commands)
 
 DrFTPd 3
 ***
