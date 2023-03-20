@@ -6,7 +6,7 @@
 * It will still need to be configured, but the hard bit is getting it installed in the first place!
 * If you have any questions or make any contributions feel free to contact me via email or on irc.
 
-- Enjoy
+Enjoy
 
 # Setup Environment - As Root
 
