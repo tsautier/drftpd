@@ -10,7 +10,7 @@ Now that you have the latest drftpd, you will need a way to compile it. Drftpd 2
    * Select the 'Advanced' tab
    * Click 'Environment Variables'
    * Locate the 'PATH' variable under System Variables and press 'Edit'
-   * Paths are separated by semi-colons, so add ";X:\Path\To\Java\bin" and press 'OK'
+   * Paths are separated by semi-colons, so add `";X:\Path\To\Java\bin"` and press 'OK'
    * Create a new system variable with the name 'JAVA_HOME' and the value "X:\Path\To\Java" and press 'OK' 
 
 Be sure to change all directory paths to the locations they are stored on your pc.
