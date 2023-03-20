@@ -223,20 +223,27 @@ There that's the basic instructions for Advanced Configurations
 # Common Problems
 **Q: JRE cannot Initialize when trying to run master/slave **
 > A: Java path not set in profile. Either add the path to profile, or make a symbolic link to java in /usr/bin
+
 **Q: Connection Refused when trying to start slave **
-A: Could be 2 things, The ip you are trying to connect to is wrong, or the master bind port is wrong
+> A: Could be 2 things, The ip you are trying to connect to is wrong, or the master bind port is wrong
+
 **Q: Cannot Find drftpd.key **
-A: You didn't run genkey.sh
+> A: You didn't run genkey.sh
+
 **Q: Can you help me out with 1.1.4 **
-A: It has been out of dev for a while now, so No (Upgrade)
+> A: It has been out of dev for a while now, so No (Upgrade)
+
 **Q: Will This Work For Windows **
-A: Yes the only difference is the .sh commands to the service commands in windows
+> A: Yes the only difference is the .sh commands to the service commands in windows
+
 **Q: Can you write specific commands for starting Master Slave in windows **
-A: No, Don't have the time or patience for windows
+> A: No, Don't have the time or patience for windows
+
 **Q: What Version Of Java Do I Need?** 
-A: Master Needs 1.5 but slaves do not, but to be on the safe side, id put 1.5 on both
+> A: Master Needs 1.5 but slaves do not, but to be on the safe side, id put 1.5 on both
+
 **Q: HELP! I can't transfer files, I keep getting Failed errors! **
-A: drftpd.key that you created on your master _NEEDS_ to be on all your slaves too
+> A: drftpd.key that you created on your master _NEEDS_ to be on all your slaves too
 
 # Ending Credits
 
