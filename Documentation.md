@@ -37,7 +37,7 @@ DrFTPd 3
     * [Installing Plugins](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-3#plugins)
 
 **Configuring DrFTPd 3**
-* [Creating IRC Theme]
+* [Creating IRC Theme](https://github.com/drftpd-ng/drftpd/wiki/Creating-IRC-Theme)
 
 **Using DrFTPd 3**
 * [First login](https://github.com/drftpd-ng/drftpd/wiki/First-login)
