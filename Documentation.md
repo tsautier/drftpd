@@ -26,7 +26,7 @@ DrFTPd 2
 * [SlaveSelection](https://github.com/drftpd-ng/drftpd/wiki/SlaveSelection)
 
 **Using DrFTPd 2**
-* [First login]()
+* [First login](https://github.com/drftpd-ng/drftpd/wiki/First-login)
 * [Site Commands]()
 
 DrFTPd 3
@@ -41,7 +41,7 @@ DrFTPd 3
 * Creating IRC Theme
 
 **Using DrFTPd 3**
-* First login
+* [First login](https://github.com/drftpd-ng/drftpd/wiki/First-login)
 * Site Commands
 
 Help Files
