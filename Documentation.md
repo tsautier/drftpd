@@ -26,8 +26,8 @@ DrFTPd 2
 * [SlaveSelection](https://github.com/drftpd-ng/drftpd/wiki/SlaveSelection)
 
 **Using DrFTPd 2**
-* First login
-* Site Commands
+* [First login]()
+* [Site Commands]()
 
 DrFTPd 3
 ***
