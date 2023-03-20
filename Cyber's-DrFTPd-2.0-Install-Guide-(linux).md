@@ -56,11 +56,11 @@ JAVA_HOME="/usr/java/jdk1.5.0"; export JAVA_HOME
 3. Note: It is an acute (grave accent,the key below Esc) before echo, apostrophe after sed, then apostrophe acute after 1conf/
 4. This will move all .conf.dist files to .conf files in the working directory. Here is a 3 line .sh script that I keep with my drftpd files.
 
-```
+``````
 #! /bin/sh
 for file in *.conf.dist ; do mv $file `echo $file | sed 's/\(.*\.\)conf.dist/\1conf/'` ; done
 exit 0
-```
+``````
 
 **Edit drftpd.conf**
 
