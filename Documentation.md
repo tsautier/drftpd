@@ -6,7 +6,7 @@
 * [Getting Help](https://github.com/drftpd-ng/drftpd/wiki/Getting-Help)
 
 # DrFTPd 2
-
+(DR2 is no longer supported by the developers, please use DR4)
 ## Installation guides for DrFTPd 2
 
 * [Official Install Guide (Put together multiple users)](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-DR2)
@@ -31,7 +31,7 @@
 * [Site Commands](https://github.com/drftpd-ng/drftpd/wiki/Site-Commands)
 
 # DrFTPd 3
-
+(DR3 is no longer supported by the developers, please use DR4)
 ## Installation guides for DrFTPd 3
 
 * [Official Install Guide 3](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-3)
