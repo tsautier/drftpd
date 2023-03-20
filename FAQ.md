@@ -75,6 +75,7 @@ wrapper.working.dir=../
 Put it at the begining of the file.
 
 **Site Usage**
+
 **Why are some files appended by .conflict my ftp? What are these *.conflict files?**
 
 > These files are left by the archive plugin, they come about when the same file name exists on at least two slaves, but the size varies.
