@@ -1,0 +1,3 @@
+## First login
+
+Ones you have started the drftpd master you are ready to login for the first time. If you have converted user files from a previous version you can login using your old details. If you didn't convert user files you can now login at [ftp://drftpd:drftpd@localhost:2121](https://web.archive.org/web/20170303145337/ftp://localhost:2121/) (or the port you specified as master.port in master.conf). Please note that the useraccount drftpd only is able to connect from localhost (for security reasons). You can find more documentation [here](https://web.archive.org/web/20170303145337/http://www.drftpd.org/index.php/Documentation).
