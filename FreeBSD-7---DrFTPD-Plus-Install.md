@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 * NOTE: This install guide is about 80% done, everything in here has been tested.
 * This guide will get DrFTPD+ 2.0 installed and running on FreeBSD 7.x with Diablo jdk16
 * This guide will probably work on other versions of Java, FreeBSD, DrFTPD.
@@ -7,13 +7,13 @@
 * If you have any questions or make any contributions feel free to contact me via email or on irc.
 - Enjoy
 
-## Setup Environment - As Root
+# Setup Environment - As Root
 
 You had better know your root password :)
 
 `su`
 
-### Create A DrFTPD User Account
+## Create A DrFTPD User Account
 
 **Create The Account**
 
