@@ -2,7 +2,7 @@ Plugins must be written in java. It would be fairly easy to write a plugin that 
 
 All available plugins listed here are included with the DrFTPD distribution (unless otherwise stated).
 
-### DrFTPD+
+## DrFTPD+
 A compilation of many popular mods already integrated into DrFTPD is available in a package called [DrFTPD+](https://web.archive.org/web/20170303085159/http://www.drftpd.org/index.php/Plus). You can get more information by visiting the [wiki page devoted to it](https://web.archive.org/web/20170303085159/http://www.drftpd.org/index.php/Plus).
 
 Available plugins
