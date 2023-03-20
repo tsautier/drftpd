@@ -6,7 +6,7 @@
 
 * [Documentation](https://github.com/drftpd-ng/drftpd/wiki/Documentation)
 * [FAQ](https://github.com/drftpd-ng/drftpd/wiki/FAQ)
-* [DrFTPD Repository]
+* [DrFTPD Repository](https://github.com/drftpd-ng/drftpd)
 * [IRC support]
 
 * [Introduction](https://github.com/drftpd-ng/drftpd3/wiki/Introduction)
