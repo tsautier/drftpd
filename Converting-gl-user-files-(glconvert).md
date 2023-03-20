@@ -6,13 +6,12 @@ Now edit glftpdconvert.sh with your favorite text editor.
 
 There are three settings here is a basic outline of them
 
+```
 export VMARGS="
-
 -Dglftpd.users=/glftpd/ftp-data/users \ # Where the glftpd users dir is
-
 -Dglftpd.root=/glftpd \ # Where glftpd is installed
-
 -Dglftpd.passwd=/glftpd/etc/passwd" # Where the passwd file is
+```
 
 If glftpd is installed in /glftpd these settings should be fine.
 
