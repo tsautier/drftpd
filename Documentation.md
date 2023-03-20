@@ -41,7 +41,7 @@ DrFTPd 3
 
 **Using DrFTPd 3**
 * [First login](https://github.com/drftpd-ng/drftpd/wiki/First-login)
-* [Site Commands]
+* [Site Commands](https://github.com/drftpd-ng/drftpd/wiki/Site-Commands-for-DrFTPD-3)
 
 Help Files
 ***
