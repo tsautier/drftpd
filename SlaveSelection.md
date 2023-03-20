@@ -1,4 +1,14 @@
-SlaveSelection is a solution to picking the "best" slave for each situation. As of now, there are two SlaveSelectionManagers. One resides in org.drftpd.slaveselection.def, this class works like drftpd did in versions prior to SlaveSelection (pre 1.0.x) versions. It uses the slave with the most free bandwidth in its respective direction. The other one resides in org.drftpd.slaveselection.filter, this class works by using filters(which also reside in this directory). Each filter works by using special factors that are given to it to attach a score to a slave. The scores are tallied up through each of the filters and the slave with the best score is used. The list of filters are as follows:
+SlaveSelection is a solution to picking the "best" slave for each situation.
+
+As of now, there are two SlaveSelectionManagers. One resides in org.drftpd.slaveselection.def, this class works like drftpd did in versions prior to SlaveSelection (pre 1.0.x) versions.
+
+It uses the slave with the most free bandwidth in its respective direction.
+
+The other one resides in org.drftpd.slaveselection.filter, this class works by using filters(which also reside in this directory).
+
+Each filter works by using special factors that are given to it to attach a score to a slave.
+
+The scores are tallied up through each of the filters and the slave with the best score is used. The list of filters are as follows:
 
 * [Cycle](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Cycle)
 * [Bandwidth](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Bandwidth)
