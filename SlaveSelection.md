@@ -12,7 +12,7 @@ The scores are tallied up through each of the filters and the slave with the bes
 
 * [Cycle](https://github.com/drftpd-ng/drftpd/wiki/Cycle)
 * [Bandwidth](https://github.com/drftpd-ng/drftpd/wiki/Bandwidth)
-* [Reversebandwidth](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Reversebandwidth)
+* [Reversebandwidth](https://github.com/drftpd-ng/drftpd/wiki/Reversebandwidth)
 * [Maxbandwidth](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Maxbandwidth)
 * [Maxtransfers](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Maxtransfers)
 * [Minfreespace](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Minfreespace)
