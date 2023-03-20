@@ -12,17 +12,13 @@ Enjoy
 
 You had better know your root password :)
 
-```
-su
-```
+`su`
 
 ## Create A DrFTPD User Account
 
 **Create The Account**
 
-```
-pw useradd -n drftpd -s tcsh -w random -m
-```
+`pw useradd -n drftpd -s tcsh -w random -m`
 
 **Set Home Dir Perms**
 
