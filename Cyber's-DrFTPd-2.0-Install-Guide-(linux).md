@@ -274,7 +274,7 @@ There that's the basic instructions for Advanced Configurations
 **Q: Will This Work For Windows**
 > A: Yes the only difference is the .sh commands to the service commands in windows
 
-**Q: Can you write specific commands for starting Master Slave in windows **
+**Q: Can you write specific commands for starting Master Slave in windows**
 > A: No, Don't have the time or patience for windows
 
 **Q: What Version Of Java Do I Need?** 
