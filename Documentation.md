@@ -11,7 +11,7 @@ DrFTPd 2
 
 **Installation guides for DrFTPd 2**
 * [Official Install Guide (Put together multiple users)](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-DR2)
-* Setting up SlaveBootStrap
+* [Setting up SlaveBootStrap](https://github.com/drftpd-ng/drftpd/wiki/Setting-up-SlaveBootStrap)
 * Setting up DrFTPD with wrapper (Windows Service Installation)
 * Converting gl user files (glconvert)
 * FreeBSD 7 - DrFTPD Plus Install
