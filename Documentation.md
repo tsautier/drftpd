@@ -17,7 +17,7 @@ DrFTPd 2
 * [FreeBSD 7 - DrFTPD Plus Install](https://github.com/drftpd-ng/drftpd/wiki/FreeBSD-7---DrFTPD-Plus-Install)
 * [Cyber's DrFTPd 2.0 Install Guide (linux)](https://github.com/drftpd-ng/drftpd/wiki/Cyber's-DrFTPd-2.0-Install-Guide-(linux))
 * [FreeBSD Install HowTo](https://github.com/drftpd-ng/drftpd/wiki/FreeBSD-Install-HowTo)
-* Installation:Java
+* [Installation:Java](https://github.com/drftpd-ng/drftpd/wiki/Installation:Java)
 * RemoteSlave
 
 **Configuring DrFTPd 2**
