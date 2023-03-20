@@ -52,12 +52,15 @@ JAVA_HOME="/usr/java/jdk1.5.0"; export JAVA_HOME
 **CHANGE ALL .conf.dist Files to Conf**
 
 1. If you are sure you don't want a .dist copy as a backup (i.e. this is NOT your first time installing DRFTPD), you can run this command from inside the conf directory (works on Linux/BSD):
-2. for file in *.conf.dist ; do mv $file `echo $file | sed 's/\(.*\.\)conf.dist/\1conf/'` ; done
+2. ``for file in *.conf.dist ; do mv $file `echo $file | sed 's/\(.*\.\)conf.dist/\1conf/'` ; done``
 3. Note: It is an acute (grave accent,the key below Esc) before echo, apostrophe after sed, then apostrophe acute after 1conf/
 4. This will move all .conf.dist files to .conf files in the working directory. Here is a 3 line .sh script that I keep with my drftpd files.
-5. #! /bin/sh
-6. for file in *.conf.dist ; do mv $file `echo $file | sed 's/\(.*\.\)conf.dist/\1conf/'` ; done
-7. exit 0
+
+```
+#! /bin/sh
+for file in *.conf.dist ; do mv $file `echo $file | sed 's/\(.*\.\)conf.dist/\1conf/'` ; done
+exit 0
+```
 
 **Edit drftpd.conf**
 
