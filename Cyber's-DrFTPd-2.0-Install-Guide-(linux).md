@@ -37,9 +37,11 @@ Be sure to change all directory paths to the locations they are stored on your p
 
 If ant and java/javac aren't in your path, edit /etc/profile and add lines like the following to the bottom of the file replacing the paths with the actual paths on your system:
 
-`PATH="/usr/java/jdk1.5.0/bin:$PATH"; export PATH`
-`PATH="/usr/share/ant/bin:$PATH"; export PATH`
-`JAVA_HOME="/usr/java/jdk1.5.0"; export JAVA_HOME`
+```
+PATH="/usr/java/jdk1.5.0/bin:$PATH"; export PATH
+PATH="/usr/share/ant/bin:$PATH"; export PATH
+JAVA_HOME="/usr/java/jdk1.5.0"; export JAVA_HOME
+```
 
 **Other**
 
@@ -72,6 +74,7 @@ If ant and java/javac aren't in your path, edit /etc/profile and add lines like 
 **Now To conf/**
 
 **perms.conf**
+
 Uncomment and change pasv_addr to your master IP.
 
 **irc.conf**
@@ -93,9 +96,11 @@ Change irc.server/port/ssl to desired Change blowfish if wanted Change/Add chann
 > Change n.path/name to desired
 > For Dated Paths Use:
 
-`n.type=dated`
-`n.dated=MMdd  (dated code, could be any type of date/week/month code)`
-`n.now=-Today (Symbolic link to be set in main dir for linking to dated dir)`
+```
+n.type=dated`
+n.dated=MMdd  (dated code, could be any type of date/week/month code)
+n.now=-Today (Symbolic link to be set in main dir for linking to dated dir)
+```
 
 End Of Basic conf/ Configuration
 
@@ -130,15 +135,19 @@ Got into conf/ and edit perms.conf
 
 **To Deny The making of dirs in root dir by anyone other than siteop use these**
 
-`makedir /?*/* 	*`
-`makedir /*	=siteop`
+```
+makedir   /?*/*   *
+makedir   /*   =siteop
+```
 
 This can go for other things like rename, delete, etc. For those that don't know: * = Nothing+Anything ? = At.Least.1.char+anything
 
 **No Stats (People Always Ask About This)**
 
-`nostatsup      /DIR1/*  *`
-`nostatsdn      /DIR1/*  *`
+```
+nostatsup   /DIR1/*   *
+nostatsdn   /DIR1/*   *
+```
 
 This Does Not Record Stats(allup,monthup etc., but not credits) For uploading or downloading in /DIR1/
 
@@ -146,33 +155,43 @@ This Does Not Record Stats(allup,monthup etc., but not credits) For uploading or
 
 Another problem that people always encounter is dirs listing on IRC that they don't want, to fix this dirlog is the key:
 
- dirlog          /DIR1/*       !*
- dirlog          *       *
+```
+dirlog   /DIR1/*   !*
+dirlog   *   *
+```
 
 This Will Not Announce Anything In /DIR1/ to IRC but Will Announce Everything Else
 
 Along With The Previous Command is hideinwho (This is used to keep users uploading in these dirs hidden from !who !speed !bw "site who" etc):
 
-` hideinwho /DIR1/*        *`
- `hideinwho /DIR2/*        =group1`
+```
+hideinwho   /DIR1/*   *
+hideinwho   /DIR2/*   =group1
+```
 
 This will hide everyone that is in /DIR1/ and hide group1 from being in /DIR2/
 
 **Next Is To Not Allow Credits For Certain Dirs**
 
-`#creditcheck <path> <ratio> <flag/=group/-user>`
-`#creditloss <path> <ratio> <flag/=group/-user>`
+```
+#creditcheck   <path>   <ratio>   <flag/=group/-user>
+#creditloss   <path>   <ratio>   <flag/=group/-user>
+```
 
-`creditcheck     /DIR1/* 0 *`
-`creditloss      /DIR1/* 0 *`
+```
+creditcheck   /DIR1/*   0   *
+creditloss    /DIR1/*   0   *
+```
 
 This works the same as nostats, creditcheck will allow u to download anything in /DIR1/ regardless of credits and upload anything without receiving credits
 
 In This file there is also a way to restrict ftp site commands to certain users/groups
 
-`shutdown =siteop`
-`take =take =siteop`
-`slaves !=iND`
+```
+shutdown =siteop
+take =take =siteop
+slaves !=iND
+```
 
 'shutdown =siteop' is very counter-intuitive. You may think it will limit access to 'site shutdown' to only siteops, but in fact it will allow only siteop group to login to the site. To allow all groups to login, use 'shutdown *' or 'shutdown =siteop =iND =group1 =group2 ... =groupN'.
 
