@@ -12,7 +12,7 @@ Welcome to the humble web site for DrFTPD!
 
 * [Introduction](https://github.com/drftpd-ng/drftpd/wiki/Introduction)
 * [Filesystem](https://github.com/drftpd-ng/drftpd/wiki/Filesystem)
-* [Comparison to traditional FTPDs](https://github.com/drftpd-ng/drftpd/wiki/Comparison-to-traditional-FTPDs)
+* [Comparison to traditional FTPDs](https://github.com/drftpd-ng/drftpd/wiki/Introduction#comparison-to-traditional-ftpds)
 
 **Features**
 
