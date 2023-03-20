@@ -9,5 +9,10 @@
 * [DrFTPD Repository](https://github.com/drftpd-ng/drftpd)
 * [IRC support]
 
+**Introduction**
 * [Introduction](https://github.com/drftpd-ng/drftpd3/wiki/Introduction)
+
+**Features**
 * [FreeSoftware]()
+
+**Illustration**
