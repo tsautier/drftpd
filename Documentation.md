@@ -46,7 +46,7 @@ DrFTPd 3
 Help Files
 ***
 
-* Filesystem
+* [Filesystem](https://github.com/drftpd-ng/drftpd/wiki/Filesystem)
 * Firewalls
 * Logging
 Log level log4j
