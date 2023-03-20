@@ -10,7 +10,7 @@ DrFTPd 2
 ***
 
 **Installation guides for DrFTPd 2**
-* Official Install Guide (Put together multiple users)
+* [Official Install Guide (Put together multiple users)](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-DR2)
 * Setting up SlaveBootStrap
 * Setting up DrFTPD with wrapper (Windows Service Installation)
 * Converting gl user files (glconvert)
