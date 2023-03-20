@@ -1,0 +1,3 @@
+This filter is the most simplistic filter available so far. It does not require any settings to use it. The Cycle filter works as so:
+
+* It goes through the list of available slaves with scores that are tied and gives the slave that hasn't been used in the most time a score of +1. In this manner, slaves that haven't been used in a while are given better scores and the bandwidth usage is spread out evenly.
