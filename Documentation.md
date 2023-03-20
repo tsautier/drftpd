@@ -21,7 +21,7 @@ DrFTPd 2
 * [RemoteSlave](https://github.com/drftpd-ng/drftpd/wiki/RemoteSlave)
 
 **Configuring DrFTPd 2**
-* Plugins
+* [Plugins](https://github.com/drftpd-ng/drftpd/wiki/Plugins)
 * IRC
 * SlaveSelection
 
