@@ -17,22 +17,22 @@ Be sure to change all directory paths to the locations they are stored on your p
 
 **Linux/BSD/etc**
 
-If ant and java/javac aren't in your path, edit /etc/profile and add lines like the following to the bottom of the file replacing the paths with the actual paths on your system:
+If ant and java/javac aren't in your path, edit `/etc/profile` and add lines like the following to the bottom of the file replacing the paths with the actual paths on your system:
 
 ```
 PATH="/usr/java/jre1.5.0/bin:$PATH"; export PATH
 JAVA_HOME="/usr/java/jre1.5.0"; export JAVA_HOME 
 ```
 
-Copy slave.zip from the master(in the same folder as drftpd.conf). copy conf/wrapper-slave.conf as well.
+Copy `slave.zip` from the master(in the same folder as `drftpd.conf`). copy `conf/wrapper-slave.conf` as well.
 
-Extract to a safe place on slave. Rename slave.conf.dist to slave.conf and edit to suit.
+Extract to a safe place on slave. Rename `slave.conf.dist` to `slave.conf` and edit to suit.
 
   1. Change Slavename
   2. Change master.bindport to correspond to bindport set in drftpd.conf 
   3. Change master IP.
 
-Execute slave. ./slave.sh console
+Execute slave. `./slave.sh` console
 
 check that it works then
 
@@ -40,7 +40,7 @@ check that it works then
 ./slave.sh start
 ```
 
-for windows. use the .bat file.
+for windows. use the `.bat` file.
 
 ```
 SITE ADDSLAVE SLAVENAME
