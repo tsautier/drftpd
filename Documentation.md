@@ -15,7 +15,7 @@ DrFTPd 2
 * [Setting up DrFTPD with wrapper (Windows Service Installation)](https://github.com/drftpd-ng/drftpd/wiki/Setting-up-DrFTPD-with-wrapper-(Windows-Service-Installation))
 * [Converting gl user files (glconvert)](https://github.com/drftpd-ng/drftpd/wiki/Converting-gl-user-files-(glconvert))
 * [FreeBSD 7 - DrFTPD Plus Install](https://github.com/drftpd-ng/drftpd/wiki/FreeBSD-7---DrFTPD-Plus-Install)
-* Cyber's DrFTPd 2.0 Install Guide (linux)
+* [Cyber's DrFTPd 2.0 Install Guide (linux)](https://github.com/drftpd-ng/drftpd/wiki/Cyber's-DrFTPd-2.0-Install-Guide-(linux))
 * FreeBSD Install HowTo
 * Installation:Java
 * RemoteSlave
