@@ -22,8 +22,8 @@ DrFTPd 2
 
 **Configuring DrFTPd 2**
 * [Plugins](https://github.com/drftpd-ng/drftpd/wiki/Plugins)
-* IRC
-* SlaveSelection
+* [IRC](https://github.com/drftpd-ng/drftpd/wiki/IRC)
+* [SlaveSelection](https://github.com/drftpd-ng/drftpd/wiki/SlaveSelection)
 
 **Using DrFTPd 2**
 * First login
