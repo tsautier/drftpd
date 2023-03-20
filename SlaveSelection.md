@@ -11,7 +11,7 @@ Each filter works by using special factors that are given to it to attach a scor
 The scores are tallied up through each of the filters and the slave with the best score is used. The list of filters are as follows:
 
 * [Cycle](https://github.com/drftpd-ng/drftpd/wiki/Cycle)
-* [Bandwidth](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Bandwidth)
+* [Bandwidth](https://github.com/drftpd-ng/drftpd/wiki/Bandwidth)
 * [Reversebandwidth](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Reversebandwidth)
 * [Maxbandwidth](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Maxbandwidth)
 * [Maxtransfers](https://web.archive.org/web/20170303085204/http://www.drftpd.org/index.php/Maxtransfers)
