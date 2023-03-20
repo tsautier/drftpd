@@ -5,7 +5,7 @@ All available plugins listed here are included with the DrFTPD distribution (unl
 ## DrFTPD+
 A compilation of many popular mods already integrated into DrFTPD is available in a package called [DrFTPD+](https://web.archive.org/web/20170303085159/http://www.drftpd.org/index.php/Plus). You can get more information by visiting the [wiki page devoted to it](https://web.archive.org/web/20170303085159/http://www.drftpd.org/index.php/Plus).
 
-Available plugins
+## Available plugins
 * [Archive](https://web.archive.org/web/20170303085159/http://www.drftpd.org/index.php/Archive)
 * [Trial&Quota](https://web.archive.org/web/20170303085159/http://www.drftpd.org/index.php/Trial%26Quota)
 * IRC sitebot using martyr
