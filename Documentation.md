@@ -7,7 +7,7 @@
 
 # DrFTPd 2
 
-**Installation guides for DrFTPd 2**
+## Installation guides for DrFTPd 2
 
 * [Official Install Guide (Put together multiple users)](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-DR2)
 * [Setting up SlaveBootStrap](https://github.com/drftpd-ng/drftpd/wiki/Setting-up-SlaveBootStrap)
@@ -19,29 +19,29 @@
 * [Installation:Java](https://github.com/drftpd-ng/drftpd/wiki/Installation:Java)
 * [RemoteSlave](https://github.com/drftpd-ng/drftpd/wiki/RemoteSlave)
 
-**Configuring DrFTPd 2**
+## Configuring DrFTPd 2
 
 * [Plugins](https://github.com/drftpd-ng/drftpd/wiki/Plugins)
 * [IRC](https://github.com/drftpd-ng/drftpd/wiki/IRC)
 * [SlaveSelection](https://github.com/drftpd-ng/drftpd/wiki/SlaveSelection)
 
-**Using DrFTPd 2**
+## Using DrFTPd 2
 
 * [First login](https://github.com/drftpd-ng/drftpd/wiki/First-login)
 * [Site Commands](https://github.com/drftpd-ng/drftpd/wiki/Site-Commands)
 
 # DrFTPd 3
 
-**Installation guides for DrFTPd 3**
+## Installation guides for DrFTPd 3
 
 * [Official Install Guide 3](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-3)
     * [Installing Plugins](https://github.com/drftpd-ng/drftpd/wiki/Official-Install-Guide-3#plugins)
 
-**Configuring DrFTPd 3**
+## Configuring DrFTPd 3
 
 * [Creating IRC Theme](https://github.com/drftpd-ng/drftpd/wiki/Creating-IRC-Theme)
 
-**Using DrFTPd 3**
+## Using DrFTPd 3
 
 * [First login](https://github.com/drftpd-ng/drftpd/wiki/First-login)
 * [Site Commands](https://github.com/drftpd-ng/drftpd/wiki/Site-Commands-for-DrFTPD-3)
