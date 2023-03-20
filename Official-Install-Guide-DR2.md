@@ -49,8 +49,10 @@ plugins.3=net.sf.drftpd.event.listeners.Trial
 
 This will NOT work. There has to be a plugins.1=..., otherwise no plugin will be loaded. The order can be random, but numbers have to be sequential.
 
-`plugins.2=org.drftpd.plugins.SiteBotSSL`
-`plugins.1=net.sf.drftpd.event.listeners.Trial`
+```
+plugins.2=org.drftpd.plugins.SiteBotSSL
+plugins.1=net.sf.drftpd.event.listeners.Trial
+```
 
 This works.
 
@@ -87,9 +89,11 @@ Wrapper Compiled on Windows -> [http://drftpd.ultrapresence.net/wrapper-winxp.zi
 3) Download and unzip drftpd, i do so to c:\drftpd\.
 4) Add the following lines to wrapper.conf, wrapper-slave.conf, and wrapper-master.conf
 
-`# Working Dir`
-`wrapper.working.dir=../`
-`This can go anywhere in said file.`
+```
+# Working Dir
+wrapper.working.dir=../
+This can go anywhere in said file.
+```
 
 5) In your System Properties under the Advanced Tab, there is a button entitled "Environment Variables," edit your PATH variable to include the java directory (i.e. c:\program files\java-jdk1.5\bin), also set your JAVA_HOME to this path, but without the bin appeneded to the end (i.e. c:\program files\java-jdk1.5\)
 6) Open a command prompt (start->run->cmd) and type cd c:\drftpd\ , then type c:\ant\bin\ant and it should compile drftpd. If any errors are generated, something went wrong, and drftpd most likely will not function.
