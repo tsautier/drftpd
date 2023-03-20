@@ -4,7 +4,7 @@ General
 * [FAQ](https://github.com/drftpd-ng/drftpd3/wiki/FAQ)
 * [Special Groups](https://github.com/drftpd-ng/drftpd3/wiki/Special-Groups)
 * [Clients with PRET support](https://github.com/drftpd-ng/drftpd3/wiki/Clients-with-PRET-support)
-* Getting Help
+* [Getting Help](https://github.com/drftpd-ng/drftpd/wiki/Getting-Help)
 
 DrFTPd 2
 ***
