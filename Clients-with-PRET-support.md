@@ -4,7 +4,7 @@ Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure
 
 ## Graphical Interface
 
-* [BitKinex](https://web.archive.org/web/20120114192447/http://www.bitkinex.com/) (Win32)
+* [BitKinex](http://www.bitkinex.com) 3.2.3 and later (Win32)
 * [SmartFTP](https://web.archive.org/web/20120114192447/http://www.smartftp.com/) 1.5.988.38 and later (Win32)
 * [bareFTP](https://web.archive.org/web/20120114192447/http://www.bareftp.org/) 0.2.3 and later (Linux/FreeBSD)
 * [CrossFTP](https://web.archive.org/web/20120114192447/http://www.crossftp.com/) 1.37a and later (Linux/Win32/OSX/Java)
