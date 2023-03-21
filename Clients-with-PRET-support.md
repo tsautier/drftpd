@@ -18,7 +18,7 @@ Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure
 * [Secure FTP](https://github.com/glubtech/secureftp) ??? (Linux/Unix/Windows/macOS)
 * [YummyFTP](https://www.yummysoftware.com/) 2.0.5 and later (macOS)
 * [Cyberduck](https://cyberduck.io/download/) 8.5.6 and later (macOS)
-* [wlFxp](https://web.archive.org/web/20120114192447/http://jfxp.sourceforge.net/) (Linux/Win32/OSX/Java)
+* [wlFxp](https://sourceforge.net/projects/jfxp/) 0.3.4 and later (Linux/Windows/OSX/Java)
 
 ## Command Line Interface
 
@@ -30,5 +30,5 @@ Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure
 
 ## Development SDK
 
-* [FXP.One](https://web.archive.org/web/20120114192447/http://www.lundman.net/wiki/index.php/FXP.One) also ships with FXP.cOne and clomps Clients (Linux/Win32/OSX)
-* [ftp4che](https://web.archive.org/web/20120114192447/http://sourceforge.net/projects/ftp4che/) (Java)
+* [FXP.One](https://www.lundman.net/wiki/index.php/FXP.One) also ships with FXP.cOne and clomps Clients (Linux/Windows/macOS)
+* [ftp4che](https://github.com/arnold-maderthaner/ftp4che) 1.0.1 and later (Java)
