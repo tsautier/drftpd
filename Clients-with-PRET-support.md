@@ -22,11 +22,11 @@ Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure
 
 ## Command Line Interface
 
-* [cURL](https://web.archive.org/web/20120114192447/http://curl.haxx.se/) 7.20.0 and later with --ftp-pret option (Unix/Linux/Windows/OSX/DOS/More)
-* [lftp](https://web.archive.org/web/20120114192447/http://lftp.yar.ru/) 2.6.8 and later (Linux)
-* [pftp-shit](https://web.archive.org/web/20120114192447/http://www.derijk.org/pftp/)
-* [Pftpmew](https://web.archive.org/web/20120114192447/http://pftpmew.tanesha.net/) (Linux) with [patch](https://web.archive.org/web/20120114192447/http://www.drftpd.org/index.php/Pftpmew_pret_patch)
-* [pftp (Port-FTP)](https://web.archive.org/web/20120114192447/http://www.pftp.de/) (Linux) with [patch](https://web.archive.org/web/20120114192447/http://www.drftpd.org/index.php/Pftp_pret_patch) (Also see the [Forum](https://web.archive.org/web/20120114192447/http://www.drftpd.org/phpBB2/viewtopic.php?t=86))
+* [cURL](http://curl.haxx.se/) 7.20.0 and later with --ftp-pret option (Unix/Linux/Windows/macOS)
+* [lftp](http://lftp.yar.ru/) 2.6.8 and later (Linux)
+* [pftp-shit](http://www.derijk.org/pftp/) ??? (???)
+* [Pftpmew](http://pftpmew.tanesha.net/) ??? (Linux) with [patch](http://www.drftpd.org/index.php/Pftpmew_pret_patch)
+* [pftp (Port-FTP)](http://www.pftp.de/) ??? (Linux) with [patch](http://www.drftpd.org/index.php/Pftp_pret_patch) (Also see the [Forum](http://www.drftpd.org/phpBB2/viewtopic.php?t=86))
 
 ## Development SDK
 
