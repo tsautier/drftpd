@@ -26,7 +26,7 @@ Or you can use PORT instead of PASV, if you're behind NAT you need to [Configure
 * [lftp](http://lftp.yar.ru/) 2.6.8 and later (Linux)
 * [pftp-shit](http://www.derijk.org/pftp/) ??? (???)
 * [Pftpmew](http://pftpmew.tanesha.net/) ??? (Linux) with [patch](http://www.drftpd.org/index.php/Pftpmew_pret_patch)
-* [pftp (Port-FTP)](http://www.pftp.de/) ??? (Linux) with [patch](http://www.drftpd.org/index.php/Pftp_pret_patch) (Also see the [Forum](http://www.drftpd.org/phpBB2/viewtopic.php?t=86))
+* [pftp (Port-FTP)](http://www.pftp.de/) ??? (Linux) with [patch](https://github.com/drftpd-ng/drftpd/wiki/Pftp-pret-patch) (Also see the [Forum](http://www.drftpd.org/phpBB2/viewtopic.php?t=86))
 
 ## Development SDK
 
