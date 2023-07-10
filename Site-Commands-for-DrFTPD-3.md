@@ -7,32 +7,33 @@ NOTE: If you edit [ftpcommands.conf](https://web.archive.org/web/20170302122242/
 
 All the commands from 2.0 function in 3.0 These may or may not exist in 2.0, however they aren't list in the 2.0 site command list in wiki
 
-SITE BANALL
-SITE BANALL {time in minutes} {reason}
+### SITE BANALL
+`SITE BANALL {time in minutes} {reason}`
 Bans all users for specified time and displays reason for ban
 
-SITE BANS
+### SITE BANS
 Displays list of banned users with time remaining and reason if set.
 
-SITE CHOWN
-SITE CHOWN [-r] {user[:{group}] {file}
+### SITE CHOWN
+`SITE CHOWN [-r] {user[:{group}] {file}`
 
-Example:  SITE CHOWN -R drftpd:drftpd  will change all files in existing dir and recursively to owner of drftpd in group drftpd
-SITE DEBUG
+Example:  `SITE CHOWN -R drftpd:drftpd`  will change all files in existing dir and recursively to owner of drftpd in group drftpd
+
+### SITE DEBUG
 Toggles if you can see stacktraces on command errors
 
-SITE HELP
+### SITE HELP
 Displays a list of available commands
 
-SITE KICKALL
+### SITE KICKALL
 Kicks all logged in users
 
-SITE INDEXSTATUS
+### SITE INDEXSTATUS
 Displays the # of inodes in the vfs.
 
-SITE INDEXSTATUS FULL - displays additional statistics
+### SITE INDEXSTATUS FULL - displays additional statistics
 
-
+```
 Example output
 200- max hits                 : 50
 200- last search engine update: Sep 20, 2010 9:28:57 PM CST
@@ -43,31 +44,34 @@ Example output
 200- cached inodes            : 23
 200- ram usage                : 55.4KB
 200- size                     : 265.2MB
-SITE FIXLINKS
+```
+
+### SITE FIXLINKS
 Fixes symlinks in current directory
 
-SITE FIXSIZE
+### SITE FIXSIZE
 Recursively walks through and validates the size information of the current working directory
 
-SITE MASTERUPTIME
+### SITE MASTERUPTIME
 Displays Uptime of Master
 
-SITE RELOADPLUGIN
-Syntax: SITE RELOADPLUGIN class.path.to.plugin
+### SITE RELOADPLUGIN
+Syntax: `SITE RELOADPLUGIN class.path.to.plugin`
 
 This command unloads then loads a plugin class file. For example, site reloadplugin org.drftpd.plugins.SiteBot would unload then load and execute the SiteBot plugin.
 
 This command is equal to doing an unload then load
 
-SITE REBUILDINDEX
+### SITE REBUILDINDEX
 Recreate the index of the current VFS
 
-SITE REQDEL
-SITE SEARCHFILE
-SITE SEARCHDIR
-SITE SLAVEUPTIME
-SITE SLAVESUPTIME
-SITE STATUS
+### SITE REQDEL
+### SITE SEARCHFILE
+### SITE SEARCHDIR
+### SITE SLAVEUPTIME
+### SITE SLAVESUPTIME
+### SITE STATUS
+```
 SITE STATUS Usage:
 SITE STATUS <os, vm, memory, threads, gc, all>
 SITE STATUS OS - Will show Operational System Info
@@ -77,10 +81,12 @@ SITE STATUS THREADS - Will show Threads Info.
 SITE STATUS GC - Will show Garbage Collector Info.
 SITE STATUS CLASSES - Will show Classes Info.
 SITE STATUS ALL - shortcut to display ALL Info.
-SITE SWHO
-SITE TIME
+```
+
+### SITE SWHO
+### SITE TIME
 Displays the current server time from Master
 
-SITE UPDATESEARCHER
-SITE VERS
+### SITE UPDATESEARCHER
+### SITE VERS
 Displays version of DRFTPD that is currently running.
