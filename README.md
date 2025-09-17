@@ -51,31 +51,66 @@ On the slaves you will need to:
   - MediaInfo (CLI): https://mediaarea.net/en/MediaInfo
   - mkvalidator tool: https://github.com/Matroska-Org/foundation-source
 
-## Stable version
-### Git (better way) or Release
+## Versions
 
-Clone the project from https://github.com/drftpd-ng/drftpd.git or Download release from https://github.com/drftpd-ng/drftpd/releases
+### Stable version (`4.0.12`)
+For stable releases, use the latest official version:
 
-Git:
-- Run `git clone https://github.com/drftpd-ng/drftpd.git`
-- Run `cd drftpd`
-- Run `git checkout tags/4.0.12`
+- **Git**:  
+  ```bash
+  git clone https://github.com/drftpd-ng/drftpd.git
+  cd drftpd
+  git checkout tags/4.0.12
+  ```
+- **Archive**:  
+  ```bash
+  wget https://github.com/drftpd-ng/drftpd/archive/4.0.12.tar.gz
+  tar xvzf 4.0.12.tar.gz
+  cd drftpd-4.0.12
+  ```
 
-Release:
-- Run `wget https://github.com/drftpd-ng/drftpd/archive/4.0.12.tar.gz`
-- Run `tar xvzf 4.0.12.tar.gz`
-- Run `cd drftpd-4.0.12`
+### Development version (`4.0.13-SNAPSHOT`)
+If you want to test or contribute to the development version, use the main branch or the dev tag:
 
-### Compile
+- **Git** (recommended for development):
+  ```bash
+  git clone https://github.com/drftpd-ng/drftpd.git
+  cd drftpd
+  # Main development branch
+  git checkout main
+  # or dev tag if available
+  git checkout tags/4.0.13-SNAPSHOT
+  ```
+  > ⚠️ This version is not considered stable. It may contain bugs or experimental features.
+- **Archive**:  
+  ```bash
+  wget https://github.com/tsautier/drftpd/archive/refs/heads/main.zip
+  unzip main.zip
+  cd drftpd-main
+  ```
+  > ⚠️ Development version, recommended for testing or development only.
 
-Maven:
-- Optional (Upgrade only), Run `mvn clean`
-- Run `mvn validate`
-- Run `mvn install`
+---
 
-Check generated runtime directory
+#### Why use `git clone`?
+- **For development or testing**: Always prefer `git clone` to benefit from updates and the full project history.
+- **For quick installation or non-technical users**: The archive is sufficient, but not recommended for contribution.
 
-### Master
+---
+
+## Build
+
+To build the version you downloaded:
+
+```bash
+mvn clean
+mvn validate
+mvn install
+```
+
+Check the generated runtime directory.
+
+## Master
 
 - Copy .dist files to .conf only if you change the settings from config and plugins folders (at least `master.conf`)
 - Optional: Run `./genkey.sh` for Linux or `genkey.bat` for Windows (if you want to use SSL (Master & Slave))
@@ -84,52 +119,18 @@ Check generated runtime directory
 - Execute remote commands: `SITE ADDSLAVE SLAVENAME` and `SITE SLAVE SLAVENAME ADDMASK *@IP.MASK`
 - Optional: Create Master Service (`systemd`, `sc.exe` ...)
 
-### Slave
+## Slave
 
 - Copy .dist files to .conf only if you change the settings from config folder (at least `slave.conf`)
 - Optional: Copy the `drftpd.key` from the master to the config directory
 - Run `./slave.sh` for Linux or `slave.bat` for Windows
 - Optional: Create Slave Service (`systemd`, `sc.exe` ...)
 
-## Unstable version
+## For development (debug only)
 ### Git
 
 Clone the project from https://github.com/drftpd-ng/drftpd.git
 
-Git:
-- Run `git clone https://github.com/drftpd-ng/drftpd.git`
-- Run `cd drftpd`
-
-### Compile
-
-Maven:
-- Optional (Upgrade only), Run `mvn clean`
-- Run `mvn validate`
-- Run `mvn install`
-
-Check generated runtime directory
-
-### Master
-
-- Copy .dist files to .conf only if you change the settings from config and plugins folders (at least `master.conf`)
-- Optional: Run `./genkey.sh` for Linux or `genkey.bat` for Windows (if you want to use SSL (Master & Slave))
-- Run `./master.sh` for Linux or `master.bat` for Windows
-- Connect to `127.0.0.1:2121` with `drftpd:drftpd`
-- Optional: Create Master Service (`systemd`, `sc.exe` ...)
-
-### Slave
-
-- Copy .dist files to .conf only if you change the settings from config folder (at least `slave.conf`)
-- Optional: Copy the `drftpd.key` from the master to the config directory
-- Run `./slave.sh` for Linux or `slave.bat` for Windows
-- Optional: Create Slave Service (`systemd`, `sc.exe` ...)
-
-### For dev (debug only)
-## Git
-
-Clone the project from https://github.com/drftpd-ng/drftpd.git
-
-Git:
 - Run `git clone https://github.com/drftpd-ng/drftpd.git`
 - Run `cd drftpd`
 - Open `pom.xml` from .dev folder with IntelliJ IDEA Community
@@ -142,8 +143,8 @@ Create new Application via Run -> Edit Configurations
 - Name: `Master`
 - JDK: `java 17 SDK of 'drftpd-dev' module`
 - Main class: `org.drftpd.master.Master`
-- eg. Working Directory: `C:\Users\Administrator\Documents\GitHub\drftpd\runtime\master`
-- eg. Environment variables: `DRFTPD_CONFIG_PATH=C:\Users\Administrator\Documents\GitHub\drftpd\runtime\master`
+- Example Working Directory: `C:\Users\Administrator\Documents\GitHub\drftpd\runtime\master`
+- Example Environment variables: `DRFTPD_CONFIG_PATH=C:\Users\Administrator\Documents\GitHub\drftpd\runtime\master`
 - Use `org.drftpd.master.Master`
 
 Start debug Master
@@ -154,8 +155,8 @@ Create new Application via Run -> Edit Configurations
 - Name: `Slave`
 - JDK: `java 17 SDK of 'drftpd-dev' module`
 - Main class: `org.drftpd.slave.Slave`
-- eg. Working Directory: `C:\Users\Administrator\Documents\GitHub\drftpd\runtime\slave`
-- eg. Environment variables: `DRFTPD_CONFIG_PATH=C:\Users\Administrator\Documents\GitHub\drftpd\runtime\slave`
+- Example Working Directory: `C:\Users\Administrator\Documents\GitHub\drftpd\runtime\slave`
+- Example Environment variables: `DRFTPD_CONFIG_PATH=C:\Users\Administrator\Documents\GitHub\drftpd\runtime\slave`
 
 Start debug Slave
 
