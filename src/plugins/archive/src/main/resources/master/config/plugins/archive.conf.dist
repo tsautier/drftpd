@@ -22,6 +22,7 @@
 # x.ignoreafter = (Optional) - Don't archive releases if older than X minutes                      #
 # x.repeat = (Optional) - How many times to check Section during 1 cycle                           #
 # x.scansubdirs = (Optional) - Used to scan subdirs of section instead of section dirs. (eg. MP3)  #
+# x.scansubdirs.regex = (Optional) - Regex to identify subdirs to scan into. (Default: Season/Date matching) #
 # x.archiveregex = (Optional) - Which folders to archive using regex                               #
 # x.todirectory = (Optional) - Move directory after archive (Section name or FULL path only)       #
 # x.todirectorytype = (Optional) - Type to use while moving dir (alpha/dated/rls/regex)            #

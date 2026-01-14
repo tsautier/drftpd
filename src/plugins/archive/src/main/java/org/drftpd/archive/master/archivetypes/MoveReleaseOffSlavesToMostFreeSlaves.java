@@ -49,16 +49,21 @@ public class MoveReleaseOffSlavesToMostFreeSlaves extends ArchiveType {
      *
      * Loads offOfSlaves which is unique to this ArchiveType
      */
-    public MoveReleaseOffSlavesToMostFreeSlaves(Archive archive, SectionInterface section, Properties props, int confNum) {
+    public MoveReleaseOffSlavesToMostFreeSlaves(Archive archive, SectionInterface section, Properties props,
+            int confNum) {
         super(archive, section, props, confNum);
 
         _offOfSlaves = getOffOfSlaves(props, confNum);
         if (_offOfSlaves.isEmpty()) {
-            throw new NullPointerException("Cannot continue, 0 slaves found to move off MoveReleaseOffSlavesToMostFreeSlaves for conf number " + confNum);
+            throw new NullPointerException(
+                    "Cannot continue, 0 slaves found to move off MoveReleaseOffSlavesToMostFreeSlaves for conf number "
+                            + confNum);
         }
 
         if (_slaveList.isEmpty()) {
-            throw new NullPointerException("Cannot continue, 0 destination slaves found for MoveReleaseOffSlavesToMostFreeSlaves for conf number " + confNum);
+            throw new NullPointerException(
+                    "Cannot continue, 0 destination slaves found for MoveReleaseOffSlavesToMostFreeSlaves for conf number "
+                            + confNum);
         }
 
         if (_numOfSlaves < 1) {
@@ -71,7 +76,7 @@ public class MoveReleaseOffSlavesToMostFreeSlaves extends ArchiveType {
      */
     private Set<RemoteSlave> getOffOfSlaves(Properties props, int confnum) {
         Set<RemoteSlave> offOfSlaves = new HashSet<>();
-        for (int i = 1; ; i++) {
+        for (int i = 1;; i++) {
             String slavename = null;
 
             try {
@@ -93,13 +98,14 @@ public class MoveReleaseOffSlavesToMostFreeSlaves extends ArchiveType {
     }
 
     /*
-     *  This finds all the destination slaves listed by free space
-     *  excluding the slaves we do NOT want to send too
+     * This finds all the destination slaves listed by free space
+     * excluding the slaves we do NOT want to send too
      */
     @Override
     public Set<RemoteSlave> findDestinationSlaves() {
         HashSet<RemoteSlave> destSlaves = new HashSet<>();
-        for (RemoteSlave freeslave : GlobalContext.getGlobalContext().getSlaveManager().findSlavesBySpace(_numOfSlaves, _offOfSlaves, false)) {
+        for (RemoteSlave freeslave : GlobalContext.getGlobalContext().getSlaveManager().findSlavesBySpace(_numOfSlaves,
+                _offOfSlaves, false)) {
             for (RemoteSlave confslave : _slaveList) {
                 if (freeslave.getName().equals(confslave.getName())) {
                     destSlaves.add(confslave);
@@ -116,7 +122,8 @@ public class MoveReleaseOffSlavesToMostFreeSlaves extends ArchiveType {
      * Also checks if it is removed from all slaves.
      */
     @Override
-    protected boolean isArchivedDir(DirectoryHandle lrf) throws IncompleteDirectoryException, OfflineSlaveException, FileNotFoundException {
+    protected boolean isArchivedDir(DirectoryHandle lrf)
+            throws IncompleteDirectoryException, OfflineSlaveException, FileNotFoundException {
         for (InodeHandle inode : lrf.getInodeHandlesUnchecked()) {
             if (inode.isLink()) {
                 logger.debug("Ignoring link type for {}", inode.toString());
@@ -151,7 +158,39 @@ public class MoveReleaseOffSlavesToMostFreeSlaves extends ArchiveType {
         if (getDirectory() != null) {
             directory = getDirectory().getPath();
         }
-        return "MoveReleaseOffSlavesToMostFreeSlaves=[directory=[" + directory + "]dest=[" + outputSlaves(findDestinationSlaves()) + "]numOfSlaves=[" + _numOfSlaves + "]]";
+        return "MoveReleaseOffSlavesToMostFreeSlaves=[directory=[" + directory + "]dest=["
+                + outputSlaves(findDestinationSlaves()) + "]numOfSlaves=[" + _numOfSlaves + "]]";
     }
 
+    @Override
+    protected java.util.ArrayList<org.drftpd.jobs.master.Job> recursiveSend(DirectoryHandle lrf)
+            throws FileNotFoundException {
+        java.util.ArrayList<org.drftpd.jobs.master.Job> jobQueue = new java.util.ArrayList<>();
+
+        for (DirectoryHandle directoryHandle : lrf.getDirectoriesUnchecked()) {
+            jobQueue.addAll(recursiveSend(directoryHandle));
+        }
+        for (FileHandle file : lrf.getFilesUnchecked()) {
+            boolean onOffSlave = false;
+            try {
+                for (RemoteSlave slave : file.getAvailableSlaves()) {
+                    if (_offOfSlaves.contains(slave)) {
+                        onOffSlave = true;
+                        break;
+                    }
+                }
+            } catch (NoAvailableSlaveException e) {
+                // ignore
+            }
+
+            if (onOffSlave) {
+                logger.info("Adding {} to the job queue", file.getPath());
+                org.drftpd.jobs.master.Job job = new org.drftpd.jobs.master.Job(file, _priority, _numOfSlaves,
+                        findDestinationSlaves());
+                jobQueue.add(job);
+            }
+        }
+
+        return jobQueue;
+    }
 }
