@@ -2,7 +2,7 @@
   <a href="http://drftpd.org/"><img src="https://github.com/drftpd-ng/drftpd-ng.github.io/blob/2611e3c1010b6c3c9185a542fb6075eb3c697128/docs/resources/logo.jpg" alt="DrFTPD"></a>
 </h1>
 <p align="center">
-  <a href="https://circleci.com/gh/drftpd-ng" alt="Build"><img src="https://circleci.com/gh/drftpd-ng/drftpd/tree/master.svg?style=shield" /></a>
+  <a href="https://github.com/drftpd-ng/drftpd/tree/master" alt="Build"><img src="https://github.com/drftpd-ng/drftpd/actions/workflows/maven-build-upload-dependency-graph-artifacts.yml/badge.svg?branch=master" /></a>
   <a href="https://github.com/drftpd-ng/drftpd/wiki/Documentation" alt="Documentation"><img src="https://img.shields.io/badge/Documentation-RTFM-orange.svg" /></a>
 </p>
 
