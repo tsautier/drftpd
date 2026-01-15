@@ -74,6 +74,42 @@ public class Bytes {
         return bytes + "B";
     }
 
+
+    /**
+     * Formats bytes with limit to MB/MiB for IRC announcements
+     * @param bytes the number of bytes
+     * @return formatted string limited to MB
+     */
+    public static String formatBytesLimitMB(long bytes) {
+        return formatBytesLimitMB(bytes, System.getProperty("bytes.binary", "false").equals("true"));
+    }
+
+    /**
+     * Formats bytes with limit to MB/MiB for IRC announcements
+     * @param bytes the number of bytes
+     * @param binary use binary (MiB) or decimal (MB) units
+     * @return formatted string limited to MB
+     */
+    public static String formatBytesLimitMB(long bytes, boolean binary) {
+        long absbytes = Math.abs(bytes);
+        
+        // Only use M, K, B - no G or T
+        for (Multiple multiple : MULTIPLES) {
+            if (multiple.getSuffix() == 'G' || multiple.getSuffix() == 'T' || 
+                multiple.getSuffix() == 'P' || multiple.getSuffix() == 'E') {
+                continue; // Skip GB, TB, PB, EB
+            }
+            
+            long multipleVal = binary ? multiple.getBinaryMultiple() : multiple.getMultiple();
+            
+            if (absbytes >= multipleVal) {
+                return Bytes.FORMAT.format((float) bytes / multipleVal) + 
+                       multiple.getSuffix() + (binary ? "i" : "") + "B";
+            }
+        }
+        
+        return bytes + "B";
+    }
     /**
      * Parse a string representation of an amount of bytes. The suffix b is
      * optional and makes no different, this method is case insensitive.
