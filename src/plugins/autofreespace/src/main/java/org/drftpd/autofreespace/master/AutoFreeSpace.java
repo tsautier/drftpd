@@ -334,12 +334,15 @@ public class AutoFreeSpace implements PluginInterface {
         private InodeHandle getOldestRelease(RemoteSlave slave) {
             InodeHandle oldest = null;
 
+            // For space mode, we don't require section config
+            boolean isSpaceMode = AutoFreeSpaceSettings.getSettings().getMode().equals(AutoFreeSpaceSettings.MODE_SPACE);
+
             // Loop over all sections
             for (SectionInterface si : GlobalContext.getGlobalContext().getSectionManager().getSections()) {
 
-                // We are only interested in sections we have a config for
+                // We are only interested in sections we have a config for (except in space mode)
                 AutoFreeSpaceSettings.Section section = AutoFreeSpaceSettings.getSettings().getSections().get(si.getName());
-                if (section == null) {
+                if (section == null && !isSpaceMode) {
                     logger.debug("Skipping section [{}] as no configuration exists", si.getName());
                     continue;
                 }
@@ -356,7 +359,7 @@ public class AutoFreeSpace implements PluginInterface {
                     logger.debug("AUTODELETE: Oldest file in section {}: {}", si.getName(), file.getName());
 
                     long age = System.currentTimeMillis() - file.creationTime();
-                    long _wipeAfter = section.getWipeAfter();
+                    long _wipeAfter = (section != null) ? section.getWipeAfter() : 0;
 
                     // (Optionally) set newest oldest if oldest is null or the newly found file is older than oldest already is
                     if (oldest == null || file.creationTime() < oldest.creationTime()) {
