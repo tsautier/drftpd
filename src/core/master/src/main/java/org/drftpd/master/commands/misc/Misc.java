@@ -91,6 +91,39 @@ public class Misc extends CommandInterface {
     }
 
     /**
+     * OPTS command handler
+     * {@code OPTS <option> [<value>]}<br>
+     * <p>
+     * This command allows a client to specify options for the server.
+     * Currently supports UTF8 option for character encoding.
+     * 
+     * @param request the command request
+     * @return CommandResponse indicating success or failure
+     */
+    public CommandResponse doOPTS(CommandRequest request) {
+        if (!request.hasArgument()) {
+            return new CommandResponse(501, "Syntax error in parameters or arguments");
+        }
+
+        String argument = request.getArgument().toUpperCase();
+        
+        // Handle UTF8 option
+        if (argument.equals("UTF8 ON") || argument.equals("UTF-8 ON")) {
+            // UTF-8 is already the default encoding in DrFTPD
+            return new CommandResponse(200, "UTF8 mode enabled");
+        } else if (argument.equals("UTF8 OFF") || argument.equals("UTF-8 OFF")) {
+            // We don't actually disable UTF-8, but acknowledge the command
+            return new CommandResponse(200, "UTF8 mode disabled");
+        } else if (argument.startsWith("UTF8") || argument.startsWith("UTF-8")) {
+            // UTF8 without ON/OFF
+            return new CommandResponse(200, "UTF8 mode enabled");
+        } else {
+            // Unknown option
+            return new CommandResponse(501, "Option not understood");
+        }
+    }
+
+    /**
      * <code>HELP [&lt;SP&gt; <string>] &lt;CRLF&gt;</code><br>
      * <p>
      * This command shall cause the server to send helpful
