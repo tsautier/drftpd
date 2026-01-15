@@ -1130,6 +1130,42 @@ public class DataConnectionHandler extends CommandInterface {
         return transfer(request);
     }
 
+    /**
+     * STOU command handler - Store Unique
+     * {@code STOU}<br>
+     * <p>
+     * This command behaves like STOR except that the resultant
+     * file is to be created in the current directory under a name
+     * unique to that directory. The 250 Transfer Started response
+     * must include the name generated.
+     * 
+     * @param request the command request
+     * @return CommandResponse indicating success or failure
+     */
+    public CommandResponse doSTOU(CommandRequest request) {
+        // Generate a unique filename
+        String uniqueName = "drftpd." + System.currentTimeMillis() + "." + Thread.currentThread().getId();
+        
+        // Create a new request with the unique filename
+        CommandRequest uniqueRequest = new CommandRequest(
+            request.getCommand(),
+            uniqueName,
+            request.getSession(),
+            request.getProperties(),
+            request.getUser(),
+            request.getCurrentDirectory()
+        );
+        
+        // Use the standard transfer method
+        CommandResponse response = transfer(uniqueRequest);
+        
+        // If successful, modify response to include the unique filename
+        if (response != null && response.getCode() == 150) {
+            response = new CommandResponse(150, "FILE: " + uniqueName);
+        }
+        
+        return response;
+    }
     public CommandResponse doSTOR(CommandRequest request) {
         return transfer(request);
     }
