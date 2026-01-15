@@ -1130,6 +1130,24 @@ public class DataConnectionHandler extends CommandInterface {
         return transfer(request);
     }
 
+    /**
+     * APPE command handler - Append to file
+     * {@code APPE <SP> <pathname> <CRLF>}<br>
+     * <p>
+     * This command causes the server-DTP to accept the data transferred
+     * via the data connection and to append the data to a file at the server site.
+     * If the file specified in the pathname exists at the server site, then the
+     * data shall be appended to that file; otherwise the file shall be created.
+     * 
+     * @param request the command request
+     * @return CommandResponse indicating success or failure
+     */
+    public CommandResponse doAPPE(CommandRequest request) {
+        // TODO: Implement APPE functionality
+        // Currently blocked by transfer() method at line 770-772
+        // Need to modify transfer() to support append mode
+        return StandardCommandManager.genericResponse("RESPONSE_502_COMMAND_NOT_IMPLEMENTED");
+    }
     public CommandResponse doSTOR(CommandRequest request) {
         return transfer(request);
     }
