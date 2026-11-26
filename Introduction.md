@@ -1,31 +1,66 @@
-### Introduction
+> Applies to DrFTPD 4.0.x.
 
-DrFTPD is a Distributed FTP server written in java, it's unique because it doesn't handle transfers like normal FTP servers. DrFTPD is set up with a master and a collection of file transfer slaves that handle the file transfers, you can have as many file transfer slaves as you like. Some names that could be used to describe this is ftp site merger, ftp cluster, ftp grid or multi site bnc, but the only accurate term is "distributed ftp daemon."
+# Introduction
 
-What is unique with DrFTPD is that it works with existing FTP client software, you can use the FTP client application you're used to and make site-to-site (FXP) transfers with normal FTP servers. The only exception to DrFTPD is with passive (PASV) mode. For this the client needs to support the PRET command. PRET is already supported in several of the most widely used FTP clients. You can often do without PASV mode unless you are behind a firewall which you don't have access to or you need to FXP with another DrFTPD server or a server which doesn't support PASV.
+DrFTPD is a distributed FTP daemon. It is not a normal FTP server that reads and writes files itself: it is split into one **master** and any number of **slaves**.
 
-If you merge 10 100mbit sites, you don't get a 1gbit site but you get a 10x100mbit site. What this means is that the aggregate bandwidth is 1000 mbit but a single transfer will never go above 100mbit.
+## The pieces
 
-### Filesystem
+| | Master | Slave |
+|---|---|---|
+| Java main class | `org.drftpd.master.Master` | `org.drftpd.slave.Slave` |
+| Directory after build | `runtime/master` | `runtime/slave` |
+| Speaks FTP with clients | yes (default port 2121) | no, knows nothing about FTP |
+| Knows users, groups, permissions | yes | no |
+| Stores the virtual file system (VFS) | yes (the authoritative copy) | no |
+| Stores the actual files | no (it can run a local slave if you want) | yes (`slave.root.N` directories) |
+| Does file transfers | no | yes, all of them |
+| Runs plugins and site commands | yes | only small helpers (for example checksum or mediainfo work) |
 
-DrFTPD's approach to the file system and file transfers is what makes it unique. Each file can, and will, end up on a different transfer slave.
+The master uses very little bandwidth: only the FTP control connections, directory listings and the instructions to the slaves pass through it. Neither the master nor the slaves need root privileges.
 
-DrFTPD uses transfer slaves for all file storage and transfers, it supports but doesn't require a file transfer slave to be run locally. The master therefore uses very little bandwidth. FTP control connection, data connections for file listings and instructions to the slaves, are the only operations that consume bandwidth on the master.
+## The virtual file system
 
-The master has a filelist that keeps track of which slaves have which files and information about those files. A file can exist on multiple slaves for redundancy and more bandwidth.
+The master keeps a file list (the VFS) that records which slaves hold which files, plus all metadata: size, owner user and group, last modified time, checksum and so on. This list is the authoritative source. The slaves only store the bytes.
 
-When a slave is started, it gathers a filelist and sends the entire list to the master. The master merges this list with it's existing file list and makes sure that it's in-sync with it's existing file list by adding and removing files to it's own list.
+Consequences:
 
-Because the master doesn't have any files locally, modifications to the virtual filesystem cannot be done easily from outside of the drftpd application.
+- A file can exist on several slaves for redundancy or more bandwidth.
+- Because the master has no files locally, you cannot change the VFS by touching files on a slave's disk. The slave needs exclusive write access to its storage area, otherwise it goes out of sync with the master and errors occur.
+- If you merge 10 sites of 1 Gbit you get a 10 x 1 Gbit site, not a 10 Gbit site: a single transfer never exceeds one slave's speed.
 
-Neither the master or the slaves need root privileges. The virtual filesystem contained on the master of which slaves files reside on is the authoritative source for information about the files. Items like lastModified, size, user, and group, are all kept on the master. The slave does however require exclusive write access to the storage area, otherwise it will become unsynced with the master filelist and errors can occur.
+## Slave connection and remerge
 
-The slave is kept thin/dumb and isn't told anything about users. It simply processes the instructions that are given to the master and knows nothing about the ftp protocol. This is an advantage as it simplifies administration of the slaves.
+A slave connects **to** the master (outgoing connection to `master.bindport`, default 1099, on the host given by `master.host`). The slave name in `slave.conf` must have been added on the master with `SITE ADDSLAVE`, and the slave's IP must match a mask added with `SITE SLAVE <name> ADDMASK <ident@host>`. Otherwise the master refuses it (see [Adding Slaves](Adding-Slaves)). The connection is TLS encrypted, see [SSL/TLS](SSL-TLS).
 
-### Comparison to traditional FTPDs
+When a slave comes online it walks through its storage roots and sends its complete file list to the master. This is called a **remerge**. The master merges the list into its VFS: it adds files it did not know, and removes the slave from files the slave no longer has. The VFS is therefore rebuilt from the slaves the first time they connect after a fresh install.
 
-Drftpd is truly distributed and has no working comparison. Msftpd is a work in progress and follows the PRET spec that drftpd has created. Drftpd is the only working implementation of PRET.
+Remerge behaviour is tuned in `master.conf` (`partial.remerge.mode`, `enableremergechecksums`, `remerge.pause.threshold`, `remerge.resume.threshold`) and `slave.conf` (`ignore.partialremerge`, `threadedremerge`, `threadedthreads`, `rootCollectionThreads`, `concurrent.root.iteration`). See [Master Configuration](Master-Configuration) and [Slave Configuration](Slave-Configuration). With `partial.remerge.mode=off` (the default) a full remerge is done on every connect.
 
-RaidenFTPD managed to get halfway toward PRET with what it calls VLS (Virtually Linked Servers). It does a remote mount of a directory, so you can put /movies on another FTP. It's just a convenience so that the ftp client doesn't need to connect to another FTP.
+While a slave is offline its files are still listed (`files.offline.enabled=true` by default) but cannot be transferred.
 
-### Illustration
+## How a transfer flows
+
+1. The client connects to the master and logs in. All commands go to the master. It checks permissions and the VFS.
+2. For an **upload**, the master chooses a slave (see [Slave Selection](Slave-Selection)). For a **download**, it picks one of the slaves that has the file.
+3. The master instructs that slave to open a data connection and, in **passive mode**, tells the client the slave's address in its `227 Entering Passive Mode` reply. The client then connects directly to the slave. The file data never passes through the master. In **active mode** the master tells the slave to connect to the address the client gave with `PORT`.
+4. When the transfer finishes, the slave reports size, checksum and speed to the master, which updates the VFS and runs hooks (zipscript, stats, IRC announcements, ...).
+
+FXP (site-to-site) transfers between the slave and another FTP server work like this too, since the client only relays addresses between the two servers.
+
+### PRET and passive mode
+
+Standard FTP says `PASV` is sent before the client names the file. In DrFTPD the master must know the file (or direction) before it can pick the right slave, so it needs to know the transfer in advance. The `PRET` command (PRE Transfer) provides that: the client sends `PRET <command> <file>`, then `PASV`. If a client sends `PASV` without `PRET` the master answers `500 You need to use a client supporting PRET (PRE Transfer) to use PASV`. Active mode (`PORT`) needs no PRET. For a list of clients, see [Clients with PRET support](Clients-with-PRET-support) and [PRET Specifications](PRET-Specifications). Details on ports and NAT: [Firewalls and Passive Mode](Firewalls-and-Passive-Mode).
+
+Directory listings are different: they are served by the master itself on a local data connection, using the master's `pasv_ports` range from `perms.conf`.
+
+## What runs where
+
+- **Master**: FTP server, command handling (`config/commands/`), `perms.conf`, user and group files (`userdata`), the VFS, the index (Lucene by default), all master-side plugins and the IRC sitebot, if you use it.
+- **Slave**: file storage, data transfers, checksums, and slave-side plugin parts (for example mediainfo and the zipscript helpers). It needs `mediainfo` installed if you use the mediainfo plugin.
+
+Plugins have a master part and, in some cases, a slave part. See [Plugins](Plugins).
+
+## Next steps
+
+[Requirements](Requirements), then [Installation on Linux](Installation-Linux), [Installation on Windows](Installation-Windows) or [Docker](Docker).

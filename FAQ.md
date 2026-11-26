@@ -1,91 +1,71 @@
-**Q: Where can I get DrFTPD?**
-> A: Download the latest available version from https://github.com/drftpd-ng/drftpd3.
+> Applies to DrFTPD 4.0.x.
 
-**Q: I created an user and they cant login?**
-> A: Make sure you have a valid hostmask (ident@ip) for the user. Also check the "shutdown" section in perms.conf
+# FAQ
 
-**Q: Where Can I post error logs?**
-> A: https://github.com/drftpd-ng/drftpd3/issues
+### Why do I get "500 You need to use a client supporting PRET (PRE Transfer) to use PASV"?
 
-**Q: Where is the .exe to install drftpd?**
-> A: There isnt an .exe for drftpd read the Installation_of_DrFTPd_3 for further details.
+Your client sent `PASV` without `PRET`. The master has to know the transfer before it can pick a slave, so passive mode needs a client that sends `PRET` first. Use a client with PRET support ([list](Clients-with-PRET-support)) or switch the client to active mode. See [Firewalls and Passive Mode](Firewalls-and-Passive-Mode) and [PRET Specifications](PRET-Specifications).
 
-**Q: Where Can I get cool mods/plugins?**
-> A: http://drftpd.org/forums use the board search funktion to find whatever you need. ne sure to register and login; only registred users are able to see downloadable plugins/files.
+### My client cannot log in or list directories, it says encryption is required.
 
-**Q: What are .diff or .patch files?**
-> A: What Is A Diff
+The shipped `perms.conf` has `userrejectinsecure *`, `denydiruncrypted *` and `denydatauncrypted *`: everything must be TLS. Use explicit FTPS (AUTH TLS) and accept the certificate, or relax those lines in `perms.conf` ([Permissions](Permissions)). The master also needs `config/drftpd.key`, see [SSL/TLS](SSL-TLS).
 
-**Q: Where Can I get help?**
-> A: First search the forum, google, ask a friend, then last resort use #drftpd on efnet.
+### The default `drftpd` user cannot log in from another machine.
 
-**Q: Why cant I view files to download on the forum?**
-> A: You will need to register on the forum prior to download/posting.
+The auto-created account only has the IP masks `*@127.0.0.1` and `*@0:0:0:0:0:0:0:1`. Add a mask with `SITE ADDIP drftpd *@10.0.0.5`. See [First Login](First-Login).
 
-**Q: JRE cannot Initialize when trying to run master/slave**
-> A: Java path not set in profile. Either add the path to profile, or make a symbolic link to java in /usr/bin
+### What does "533 Requested action not taken. You must upload sfv first." mean?
 
-**Q: Connection Refused when trying to start slave**
-> A: Could be 2 things, The ip you are trying to connect to is wrong, or the master bind port is wrong
+The zipscript plugin enforces SFV-first. In a directory without an `.sfv`, only files with an allowed extension (`allowedexts` in `zipscript.conf`, which by default includes nfo, txt, jpg, diz, avi, vob, m2ts, mkv, mp4, zip, m3u) or without an extension (`sfvfirst.allownoext`) may be uploaded before the SFV. Upload the `.sfv` first, or change `sfvfirst.required`, `sfvfirst.pathcheck`, `sfvfirst.pathignore` or `sfvfirst.users`. See [Zipscript](Zipscript).
 
-**Q: Cannot Find drftpd.key**
-> A: You didn't run genkey.sh (*nix) or genkey.bat (windows)
+### What does "533 Requested action not taken. File not found in sfv." mean?
 
-**Q: Will This Work For Windows**
-> A: Yes the only difference is the .sh commands to the service commands in windows
+The directory has an `.sfv` and the file you try to upload is not listed in it (and not an allowed extension). See [Zipscript](Zipscript).
 
-**Q: Can you write specific commands for starting Master Slave in windows**
-> A: No, Don't have the time or patience for windows
+### My slave does not come online.
 
-**Q: What version of Java do I need?**
-> A: Depends on which version of DrFTPD you run. But if you install 1.7 from http://java.sun.com/j2se/downloads.html then both master and slave will work with all versions of DrFTPD.
+Check on the master log (`logs/master.log`, `logs/remoteslave.log`):
 
-**Q: HELP! I can't transfer files, I keep getting Failed errors!**
-> A: drftpd.key that you created on your master _NEEDS_ to be on all your slaves too
+- `Slave <name> does not exist, use "site addslave"`: add it with `SITE ADDSLAVE <name>`. The name is case sensitive and must equal `slave.name` in `slave.conf`.
+- `<ip> is not a valid mask for <name>`: add a mask with `SITE SLAVE <name> ADDMASK <ident@ip>`.
+- `fingerprint mismatch, refusing connection`: the slave has a pinned certificate that does not match, see [SSL/TLS](SSL-TLS).
+- TLS problems: check `master.ssl.*` and `slavemanager.ssl.*`, and that a `drftpd.key` exists on both sides.
+- Check `master.host` and `master.bindport` in `slave.conf`, and that the master slave port (default 1099) is open.
 
-**Q: How do I enable SSL for my site?**
-> A: Edit perms.conf
+Details: [Adding Slaves](Adding-Slaves).
 
-```
-userrejectsecure   !*
-userrejectinsecure   *
-denydiruncrypted   *
-denydatauncrypted   *
-```
+### Files from an offline slave are listed but cannot be downloaded.
 
-**Q: Where are permissions stored?**
-> A: Permissions are specified in perms.conf, perms.conf is a glftpd.conf style. See perms.conf
+That is by design: `files.offline.enabled=true` (default) in `master.conf` shows files that are only on offline slaves. Set it to `false` to hide them. When the slave comes back and remerges, the files are available again.
 
-**Troubleshooting**
-**Installation**
-**On windows I get the following error:**
+### Why does a slave take so long to start?
 
-```
-jvm 1 | java.lang.NoClassDefFoundError org/tanukisoftware/wrapper/WrapperSimpleApp
-````
+On connect the slave sends its full file list to the master (remerge), which is slow for big storage. See `partial.remerge.mode`, `enableremergechecksums` in `master.conf` and `threadedremerge`, `threadedthreads`, `rootCollectionThreads`, `concurrent.root.iteration` in `slave.conf`. See [Introduction](Introduction).
 
-Add the following to wrapper-slave.conf wrapper-master.conf and wrapper.conf (if you don't have a wrapper.conf then don't worry about this)
+### Can I add, move or delete files directly on a slave's disk?
 
-1. Working Dir
+No. The master's VFS is the authoritative list, and the slave needs exclusive write access to its storage. Changes outside DrFTPD put the slave out of sync with the master.
 
-```
-wrapper.working.dir=../
-```
+### How much memory does DrFTPD need? How do I change `-Xmx`?
 
-Put it at the begining of the file.
+The start scripts set `-Xms3G -Xmx3G -XX:+UseG1GC` for the master and `-Xms1G -Xmx1G -XX:+UseG1GC` for slaves (`JVM_OPTS` in `master.sh`/`slave.sh`, `master.bat`/`slave.bat`). The scripts say to check that `Xmx` suits your master. Edit `JVM_OPTS`. In Docker, set `JAVA_TOOL_OPTIONS`, see [Docker](Docker).
 
-**Site Usage**
+### Times are wrong, how do I set the time zone?
 
-**Why are some files appended by .conflict my ftp? What are these *.conflict files?**
+There is no time zone key in `master.conf`. DrFTPD runs in the JVM, which uses the operating system's time zone by default. To force one, add the standard JVM option `-Duser.timezone=<zone>` to `JVM_OPTS` in the start script. Note that MLST/MLSD timestamps are always sent in GMT, as the protocol requires.
 
-> These files are left by the archive plugin, they come about when the same file name exists on at least two slaves, but the size varies.
+### The master refuses to start with "already mapped".
 
-_fix: Try just deleting the .conflict file. The full size, regularly named file should still exist on the original slave that it was archived from._
+A command is defined twice in your command configuration. This happens after an upgrade when an old customised `config/commands/ftp/core.conf` still defines commands that moved to another file such as `request.conf.dist`. Remove the duplicate from your `.conf`, or delete the `.conf` to use the `.dist`. See [Upgrading](Upgrading).
 
-**Why are some files appended -OFFLINE?**
+### Sizes show as `51200.0MB` or `50.0GB`, can I change the unit?
 
-> These files are located on slaves that are currently offline. When the slave comes back online, the files will once again be available. If the slave is permanently gone, use the delslave command to permanently remove it, changing all -OFFLINE files to -MISSING files.
+Yes, with the JVM options `-Dbytes.maxunit=<K|M|G|T|P|E>` and `-Dbytes.binary=true` (KiB/MiB instead of KB/MB). They affect IRC announcements and FTP replies. See [Building from Source](Building-from-Source).
 
-**Why are some files appended -MISSING?**
+### Do I need root?
 
-> Files marked -MISSING are files which are included in the .sfv file, but are not located on the site yet for whatever reason.
+No. Neither master nor slave needs root or Administrator rights. Use a normal user and ports above 1024.
+
+### Where do I report a bug or ask a question?
+
+See [Getting Help](Getting-Help).

@@ -1,12 +1,31 @@
-The documentation on this wiki may be incomplete, if you notice an error or omission, please feel free to fix or add to the content on the page.
+> Applies to DrFTPD 4.0.x.
 
-For other questions, try contacting us on:
+# Getting Help
 
-* IRC - [#drftpd @ EFnet](https://web.archive.org/web/20130907060059/irc://irc.efnet.org/drftpd)
-* [Forum](https://web.archive.org/web/20130907060059/http://www.drftpd.org/phpBB2/) -- search for answer first
-* Filing a [bug report](https://web.archive.org/web/20130907060059/http://trac.drftpd.org/newticket?type=defect) or [feature request](https://web.archive.org/web/20130907060059/http://trac.drftpd.org/newticket?type=enhancement) in our [ticket system](https://web.archive.org/web/20130907060059/http://trac.drftpd.org/report/3)
-* Mailing list - [drftpd-discuss](https://web.archive.org/web/20130907060059/http://lists.sourceforge.net/lists/listinfo/drftpd-discuss)
+## Read first
 
-And make sure you include all relevant information when asking for help so that we're able to help you, "I get java.lang.NullPointerException" is NOT helpful. A FULL stacktrace when you get NullPointerExceptions IS helpful. Also include the exact revision you're using, and any steps needed to reproduce the error.
+- This wiki, starting with the [FAQ](FAQ).
+- The [Installation on Linux](Installation-Linux) or [Installation on Windows](Installation-Windows) page, and [Adding Slaves](Adding-Slaves).
+- Your logs. The master writes to `runtime/master/logs` (`master.log`, `remoteslave.log`, `commands.log`, and per-plugin logs such as `sitebot.log`), the slave to `logs/slave.log` in the slave directory. Log verbosity is explained in [Log Levels](Log-Levels).
 
-Remember: Questions that require effort to ask, are responded with more effort in the answer. Give a good question, get a good answer. Give a thorough bug report, get a fix immediately. Check the history of the [forums](https://web.archive.org/web/20130907060059/http://www.drftpd.org/phpBB2/) and [trac](https://web.archive.org/web/20130907060059/http://trac.drftpd.org/) and you'll see what kind of requests get results and which requests get ignored.
+## IRC
+
+- `#drftpd` on EFnet: ircs://irc.efnet.org:6697/drftpd (support)
+- `#drftpd-devel` on EFnet: ircs://irc.efnet.org:6697/drftpd-devel (development, support too)
+
+## Bug tracker
+
+Report bugs and request features at https://github.com/drftpd-ng/drftpd/issues. The project supplies a bug report template. Security problems are handled the same way: `SECURITY.md` says to report them on the bug tracker or in a public IRC channel such as `#drftpd` / `#drftpd-devel`. Only the latest stable release of the 4.x branch is supported.
+
+## What to put in a bug report
+
+The issue template asks for:
+
+- **Describe the bug**: a clear and concise description.
+- **To reproduce**: the steps (log in on FTP, or issue an IRC command; execute the command; the error that happens).
+- **Expected behavior**.
+- **DrFTPD**: OS (for example Debian, Windows), Java version, DrFTPD version.
+- **FTP client**: OS, software (FlashFXP, FTPRush, lftp, ...), version.
+- **Additional context**. If the bug is related to a specific plugin, attach the plugin's configuration file (the template mentions `build.conf`; for 4.x that means the relevant `config/plugins/*.conf`).
+
+Also helpful: the relevant lines of `master.log` and `slave.log` around the time of the problem, whether it happens on one slave or all, and the exact FTP reply or error message. Remove passwords, certificates and private IP addresses before posting logs or config files in public.

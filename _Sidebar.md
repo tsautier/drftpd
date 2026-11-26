@@ -1,20 +1,61 @@
-**Wiki**
+**[Home](Home)**
 
-* [Home](https://github.com/drftpd-ng/drftpd3/wiki)
+**Getting started**
+- [Introduction](Introduction)
+- [Requirements](Requirements)
+- [Installation on Linux](Installation-Linux)
+- [Installation on Windows](Installation-Windows)
+- [Docker](Docker)
+- [First Login](First-Login)
+- [Adding Slaves](Adding-Slaves)
+- [SSL/TLS](SSL-TLS)
+- [Firewalls and Passive Mode](Firewalls-and-Passive-Mode)
 
-**Resources**
+**Configuration reference**
+- [Master Configuration](Master-Configuration)
+- [Slave Configuration](Slave-Configuration)
+- [Site Commands](Site-Commands)
+- [IRC Commands](IRC-Commands)
+- [Permissions](Permissions)
+- [Users and Groups](Users-and-Groups)
+- [Sections](Sections)
+- [Log Levels](Log-Levels)
 
-* [Documentation](https://github.com/drftpd-ng/drftpd/wiki/Documentation)
-* [FAQ](https://github.com/drftpd-ng/drftpd/wiki/FAQ)
-* [DrFTPD Repository](https://github.com/drftpd-ng/drftpd)
-* [IRC support]
+**Zipscript & IRC**
+- [Zipscript](Zipscript)
+- [Mediainfo](Mediainfo)
+- [Sitebot](Sitebot)
+- [Themes](Themes)
+- [Race Leader](Race-Leader)
+- [Links](Links)
+- [Dupecheck](Dupecheck)
+- [Requests](Requests)
+- [IMDB and TVMaze](IMDB-and-TVMaze)
 
-**Introduction**
-* [Introduction](https://github.com/drftpd-ng/drftpd3/wiki/Introduction)
-* [Filesystem](https://github.com/drftpd-ng/drftpd/wiki/Introduction#filesystem)
-* [Comparison to traditional FTPDs](https://github.com/drftpd-ng/drftpd/wiki/Introduction#filesystem)
+**Site plugins**
+- [Plugins](Plugins)
+- [Slave Selection](Slave-Selection)
+- [Traffic](Traffic)
+- [Archive](Archive)
+- [Jobs](Jobs)
+- [Mirror](Mirror)
+- [Autofreespace](Autofreespace)
+- [Autonuke](Autonuke)
+- [Nukefilter](Nukefilter)
+- [Find](Find)
+- [Statistics](Statistics)
+- [Trial](Trial)
+- [PreBW](PreBW)
+- [Speedtest](Speedtest)
+- [Index and Search](Index-and-Search)
 
-**Features**
-* [FreeSoftware]()
+**Operations**
+- [Upgrading](Upgrading)
+- [Building from Source](Building-from-Source)
+- [FAQ](FAQ)
+- [Getting Help](Getting-Help)
 
-**Illustration**
+**Legacy (2.0 / 3)**
+- [Legacy Pages](Legacy-Pages)
+- [PRET Specifications](PRET-Specifications)
+- [Clients with PRET support](Clients-with-PRET-support)
